@@ -24,5 +24,4 @@ Route::get('/logout', 'LoginController@logout');
 
 //Brand
 
-
 //Category
