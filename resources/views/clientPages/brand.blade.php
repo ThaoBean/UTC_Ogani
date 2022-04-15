@@ -5,20 +5,12 @@
         <div class="hero__categories">
           <div class="hero__categories__all">
             <i class="fa fa-bars"></i>
-            <span>All departments</span>
+            <span>All Brands</span>
           </div>
           <ul>
-            <li><a href="#">Make up</a></li>
-            <li><a href="#">Lips</a></li>
-            <li><a href="#">Skincare</a></li>
-            <li><a href="#">Body Care</a></li>
-            <li><a href="#">Hair</a></li>
-            <li><a href="#">Tools & Brushes</a></li>
-            <li><a href="#">Perfume</a></li>
-            <li><a href="#">Others</a></li>
-            <li><a href="#">Papayaya & Crisps</a></li>
-            <li><a href="#">Oatmeal</a></li>
-            <li><a href="#">Fresh Bananas</a></li>
+            @foreach($brands as $brand)
+              <li><a href="#">{{$brand -> brand}}</a></li>
+            @endforeach
           </ul>
         </div>
       </div>
@@ -28,7 +20,6 @@
             <form action="#">
               <div class="hero__search__categories">
                 All Categories
-                <span class="arrow_carrot-down"></span>
               </div>
               <input type="text" placeholder="What do yo u need?">
               <button type="submit" class="site-btn">SEARCH</button>
