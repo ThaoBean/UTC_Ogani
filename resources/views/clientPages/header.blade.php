@@ -27,9 +27,21 @@
                 <li><a href="#">English</a></li>
               </ul>
             </div>
-            <div class="header__top__right__auth">
-              <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
+            @if (Auth::check())
+                <div class="header__top__right__auth">
+                  <a href="#"><i class="fa fa-user"></i>{{Auth::user()->name}}</a>
+                </div>
+                <div class="header__top__right__auth">
+                  <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                </div>
+            @else
+              <div class="header__top__right__auth">
+                <a href="/login"><i class="fa fa-user"></i> Login</a>
+              </div>
+              <div class="header__top__right__auth">
+                <a href="/register"><i class="fa fa-registered" aria-hidden="true"></i>Register</a>
+              </div>
+            @endif
           </div>
         </div>
       </div>

@@ -10,10 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Home
 Route::get('/', 'HomeController@index');
 
+//Register
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@store');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//Login
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login');
+Route::get('/logout', 'LoginController@logout');
+
+//Brand
+
+
+//Category
