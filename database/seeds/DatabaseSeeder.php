@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 // use App\Brand;
-use App\Category;
+use App\Product;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         // factory(Brand::class, 10)->create();
         // factory(Category::class, 7)->create();
+        // factory(Product::class, 15)->create();
     }
 }
