@@ -12,9 +12,11 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    //ADM
+    public function indexAdmin()
     {
-        //
+        $brands = Brand::all();
+        return view('adminPages.brands.list-brand')->with(['brands' => $brands]);
     }
 
     /**
@@ -24,7 +26,8 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        $brand = Brand::all();
+        return view('adminPages.brands.create-brand');
     }
 
     /**

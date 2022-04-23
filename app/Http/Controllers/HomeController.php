@@ -81,4 +81,9 @@ class HomeController extends Controller
     {
         //
     }
+
+    //Admin
+    public function indexAdmin(){
+        return view('adminPages.dashboard');
+    }
 }
