@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//CLIENTS
 //Home
 Route::get('/', 'HomeController@index');
 
@@ -25,3 +26,10 @@ Route::get('/logout', 'LoginController@logout');
 //Brand
 
 //Category
+
+//ADMIN
+Route::get('/admin', 'HomeController@indexAdmin');
+
+//ADM brand
+Route::get('/admin/list-brand', 'BrandController@indexAdmin');
+Route::get('/admin/create-brand', 'BrandController@create');
