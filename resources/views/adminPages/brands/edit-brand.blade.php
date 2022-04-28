@@ -19,12 +19,12 @@
         <div class="card">
           <div class="card-body">
             <div class="form-validation">
-              <form class="form-valide" action="{{URL::to('/admin/store-brand')}}" method="post">
+              <form class="form-valide" action="{{URL::to('/admin/update-brand/'.$brand->id)}}" method="post">
                 <div class="form-group row">
                   <label class="col-lg-4 col-form-label">Tên thương hiệu <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-6">
-                    <input type="text" class="form-control" name="brand" value="{{old('brand')}}" placeholder="Nhập tên thương hiệu...">
+                    <input type="text" class="form-control" name="brand" value="{{$brand->brand}}" placeholder="Nhập tên thương hiệu...">
                   </div>
                 </div>
                 @error('brand')
@@ -37,7 +37,7 @@
                 @enderror
                 <div class="form-group row">
                   <div class="col-lg-8 ml-auto">
-                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
                   </div>
                 </div>
                 @csrf

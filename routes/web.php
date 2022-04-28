@@ -33,3 +33,7 @@ Route::get('/admin', 'HomeController@indexAdmin');
 //ADM brand
 Route::get('/admin/list-brand', 'BrandController@indexAdmin');
 Route::get('/admin/create-brand', 'BrandController@create');
+Route::get('/admin/edit-brand/{id}', 'BrandController@edit');
+Route::post('/admin/update-brand/{id}', 'BrandController@update');
+Route::post('/admin/store-brand', 'BrandController@store');
+Route::post('/admin/delete-brand/{id}', 'BrandController@destroy');
