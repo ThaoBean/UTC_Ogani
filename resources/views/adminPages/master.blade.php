@@ -67,12 +67,12 @@
             <!-- <li class="nav-label">Apps</li> -->
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-              <i class="icon-envelope menu-icon"></i> <span class="nav-text">Brands</span>
+              <i class="icon-envelope menu-icon"></i> <span class="nav-text">Thương hiệu</span>
               </a>
               <ul aria-expanded="false">
-                <li><a href="{{ url('admin/list-brand')}}">List Brands</a></li>
-                <li><a href="{{ url('admin/create-brand')}}">Create Brand</a></li>
-                <li><a href="./email-compose.html">Edit Brand</a></li>
+                <li><a href="{{ url('admin/list-brand')}}">Danh sách thương hiệu</a></li>
+                <li><a href="{{ url('admin/create-brand')}}">Thêm thương hiệu</a></li>
+                <!-- <li><a href="./email-compose.html"></a></li> -->
               </ul>
             </li>
             <li>
