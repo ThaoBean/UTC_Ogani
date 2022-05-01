@@ -33,7 +33,15 @@ Route::get('/admin', 'HomeController@indexAdmin');
 //ADM brand
 Route::get('/admin/list-brand', 'BrandController@indexAdmin');
 Route::get('/admin/create-brand', 'BrandController@create');
+Route::post('/admin/store-brand', 'BrandController@store');
 Route::get('/admin/edit-brand/{id}', 'BrandController@edit');
 Route::post('/admin/update-brand/{id}', 'BrandController@update');
-Route::post('/admin/store-brand', 'BrandController@store');
 Route::post('/admin/delete-brand/{id}', 'BrandController@destroy');
+
+//ADM category
+Route::get('/admin/list-category', 'CategoryController@indexAdmin');
+Route::get('/admin/create-category', 'CategoryController@create');
+Route::post('/admin/store-category', 'CategoryController@store');
+Route::get('/admin/edit-category/{id}', 'CategoryController@edit');
+Route::post('/admin/update-category/{id}', 'CategoryController@update');
+Route::post('/admin/delete-category/{id}', 'CategoryController@destroy');
