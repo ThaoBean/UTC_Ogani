@@ -138,9 +138,9 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        // $image_path = public_path("storage/images/".$category->image);
-        // if($image_path)
-        //     unlink($image_path);
+        $image_path = public_path("storage/images/".$category->image);
+        if($image_path)
+            unlink($image_path);
         $category->delete();
         return back();
     }
