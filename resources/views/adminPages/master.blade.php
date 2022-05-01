@@ -15,6 +15,7 @@
     <!-- Custom Stylesheet -->
     <link href="{{asset('assets_admin/css/style.css')}}" rel="stylesheet">
     @yield('cssListBrand')
+    @yield('cssListCategory')
   </head>
   <body>
     <!--*******************
@@ -77,11 +78,11 @@
             </li>
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-              <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
+              <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Danh mục</span>
               </a>
               <ul aria-expanded="false">
-                <li><a href="./app-profile.html">Profile</a></li>
-                <li><a href="./app-calender.html">Calender</a></li>
+                <li><a href="{{ url('admin/list-category')}}">Danh sách danh mục</a></li>
+                <li><a href="{{ url('admin/create-category')}}">Thêm danh mục</a></li>
               </ul>
             </li>
             <li>
@@ -224,5 +225,7 @@
     <script src="{{asset('assets_admin/js/dashboard/dashboard-1.js')}}"></script>
     @yield('jsCreateBrand')
     @yield('jsListBrand')
+    @yield('jsCreateCategory')
+    @yield('jsListCategory')
   </body>
 </html>
