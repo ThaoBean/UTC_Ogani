@@ -23,6 +23,9 @@ Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 Route::get('/logout', 'LoginController@logout');
 
+//Product
+Route::get('/detail-product/{id}', 'ProductController@getProductById');
+
 //Brand
 
 //Category

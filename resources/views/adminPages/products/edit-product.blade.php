@@ -68,7 +68,7 @@
                 <div class="form-group row">
                   <label class="col-lg-2 col-form-label" >Giảm giá </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='')" class="form-control" min="0" max="100" value="{{$product->discount}}" name="discount" placeholder="Nhập % giá giảm">
+                    <input type="number" oninput="validity.valid||(value='0')" class="form-control" min="0" max="100" value="{{$product->discount}}" name="discount" placeholder="Nhập % giá giảm">
                   </div>
                 </div>               
                 <!-- End -->
@@ -77,7 +77,7 @@
                   <label class="col-lg-2 col-form-label" >Số lượng <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='')" min="0" value="{{$product->quantity}}" class="form-control" name="quantity" placeholder="Nhập số lượng sản phẩm">
+                    <input type="number" oninput="validity.valid||(value='1')" min="0" value="{{$product->quantity}}" class="form-control" name="quantity" placeholder="Nhập số lượng sản phẩm">
                   </div>
                 </div>
                 <!-- End -->

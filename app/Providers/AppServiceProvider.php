@@ -39,5 +39,9 @@ class AppServiceProvider extends ServiceProvider
             $products = Product::where('featured', true)->inRandomOrder()->limit(8)->get();
             $view->with(['categories' => $categories, 'products' => $products]);
         });
+        view()->composer('clientPages.brand_', function($view){
+            $brands = Brand::all();
+            $view->with('brands', $brands);
+        });
     }
 }

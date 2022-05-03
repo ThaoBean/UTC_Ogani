@@ -15,9 +15,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function getProductById($id){
+        $product = Product::find($id);
+        $category = Category::find($product->category_id);
+        $brand = Brand::find($product->brand_id);
+        $productRelated = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
+        // dd($product);
+        return view('clientPages.product-detail')->with([
+            'product' => $product,
+            'category' => $category,
+            'brand' => $brand,
+            'productRelated' => $productRelated
+        ]);
     }
 
     public function indexAdmin()
