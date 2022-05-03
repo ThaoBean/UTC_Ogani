@@ -45,3 +45,12 @@ Route::post('/admin/store-category', 'CategoryController@store');
 Route::get('/admin/edit-category/{id}', 'CategoryController@edit');
 Route::post('/admin/update-category/{id}', 'CategoryController@update');
 Route::post('/admin/delete-category/{id}', 'CategoryController@destroy');
+
+//ADM Products
+Route::get('/admin/list-product', 'ProductController@indexAdmin');
+Route::get('/admin/create-product', 'ProductController@create');
+Route::post('/admin/store-product', 'ProductController@store');
+Route::get('/admin/show-product/{id}', 'ProductController@show');
+Route::get('/admin/edit-product/{id}', 'ProductController@edit');
+Route::post('/admin/update-product/{id}', 'ProductController@update');
+Route::post('/admin/delete-product/{id}', 'ProductController@destroy');

@@ -79,7 +79,6 @@
     var loadFile = function(event){
       var preview = document.getElementById('preview');
       preview.src = URL.createObjectURL(event.target.files[0])
-      // $('#preview').show();
     };
   </script>
 @endsection
