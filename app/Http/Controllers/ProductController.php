@@ -7,6 +7,7 @@ use App\Brand;
 use App\Category;
 use App\Product;
 use File;
+use WithPagination;
 
 class ProductController extends Controller
 {
@@ -20,12 +21,28 @@ class ProductController extends Controller
         $category = Category::find($product->category_id);
         $brand = Brand::find($product->brand_id);
         $productRelated = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
-        // dd($product);
         return view('clientPages.product-detail')->with([
             'product' => $product,
             'category' => $category,
             'brand' => $brand,
             'productRelated' => $productRelated
+        ]);
+    }
+
+    public function getListProductByCategory($id){
+        $category = Category::find($id);
+        $brands = Brand::all();
+        $products = Product::where('category_id', $id)->get();
+        $productsFilter = Product::where('category_id', $id)->paginate(3);
+        $productsOnSale = $products->where('discount', '>', 0);
+        $productsLatest = Product::where('category_id', $id)->orderby('created_at', 'DESC')->limit(6)->get();
+        return view('clientPages.product_by_category')->with([
+            'products' => $products,
+            'productsOnSale' => $productsOnSale,
+            'brands' => $brands,
+            'productsFilter'=> $productsFilter,
+            'category' => $category,
+            'productsLatest' => $productsLatest,
         ]);
     }
 
