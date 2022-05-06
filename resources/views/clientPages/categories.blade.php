@@ -5,7 +5,7 @@
         @foreach($categories as $category)
           <div class="col-lg-3">
             <div class="categories__item set-bg" data-setbg="storage/images/{{$category->image}}">
-              <h5><a href="#">{{$category->category}}</a></h5>
+              <h5><a href="{{ url('/products-by-category/'.$category->id)}}">{{$category->category}}</a></h5>
             </div>
           </div>
         @endforeach

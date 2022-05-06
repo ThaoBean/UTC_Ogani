@@ -23,7 +23,7 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -33,7 +33,7 @@
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>0868.128.559</h5>
-                                <span>support 24/7 time</span>
+                                <span>Hỗ trợ 24/7</span>
                             </div>
                         </div>
                     </div>
