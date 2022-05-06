@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <div class="breadcrumb__text">
-          <h2>{{$category->category}}</h2>
+          <h2>{{$brand->brand}}</h2>
         </div>
       </div>
     </div>
@@ -21,46 +21,14 @@
       <div class="col-lg-3 col-md-5">
         <div class="sidebar">
           <div class="sidebar__item">
-            <h4>Thương hiệu</h4>
+            <h4>Danh mục</h4>
             <ul>
-              @foreach($brands as $brand)
-              <li><a href="{{URL::to('/products-by-brand/'.$brand->id)}}">{{$brand->brand}}</a></li>
+              @foreach($categories as $category)
+              <li><a href="{{URL::to('/products-by-category/'.$category->id)}}">{{$category->category}}</a></li>
               @endforeach
             </ul>
           </div>
-          <div class="sidebar__item">
-            <div class="latest-product__text">
-              <h4>Sản phẩm mới</h4>
-              <div class="latest-product__slider owl-carousel">
-                <div class="latest-prdouct__slider__item">
-                  @for($i=0; $i<=2; $i++)
-                  <a href="{{URL::to('/detail-product/'.$productsLatest[$i]->id)}}" class="latest-product__item">
-                    <div class="latest-product__item__pic">
-                      <img src="{{URL::to('storage/images/'.$productsLatest[$i]->image)}}" alt="">
-                    </div>
-                    <div class="latest-product__item__text">
-                      <h6>{{$productsLatest[$i]->name}}</h6>
-                      <span>{{number_format($productsLatest[$i]->price - $productsLatest[$i]->discount*0.1, 0)}}đ</span>
-                    </div>
-                  </a>
-                  @endfor                                     
-                </div>
-                <div class="latest-prdouct__slider__item">
-                  @for($i=3; $i<=count($productsLatest)-1; $i++)
-                  <a href="{{URL::to('/detail-product/'.$productsLatest[$i]->id)}}" class="latest-product__item">
-                    <div class="latest-product__item__pic">
-                      <img src="{{URL::to('storage/images/'.$productsLatest[$i]->image)}}" alt="">
-                    </div>
-                    <div class="latest-product__item__text">
-                      <h6>{{$productsLatest[$i]->name}}</h6>
-                      <span>{{number_format($productsLatest[$i]->price - $productsLatest[$i]->discount*0.1, 0)}}đ</span>
-                    </div>
-                  </a>
-                  @endfor 
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- noi bat -->
         </div>
       </div>
       <div class="col-lg-9 col-md-7">

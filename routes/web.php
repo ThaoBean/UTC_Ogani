@@ -27,6 +27,8 @@ Route::get('/logout', 'LoginController@logout');
 Route::get('/detail-product/{id}', 'ProductController@getProductById');
 //Products by category
 Route::get('/products-by-category/{id}', 'ProductController@getListProductByCategory');
+//Product by brand
+Route::get('/products-by-brand/{id}', 'ProductController@getListProductByBrand');
 
 //Brand
 

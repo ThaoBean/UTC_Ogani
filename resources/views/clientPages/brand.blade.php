@@ -9,7 +9,7 @@
           </div>
           <ul>
             @foreach($brands as $brand)
-              <li><a href="#">{{$brand -> brand}}</a></li>
+              <li><a href="{{URL::to('/products-by-brand/'.$brand->id)}}">{{$brand -> brand}}</a></li>
             @endforeach
           </ul>
         </div>

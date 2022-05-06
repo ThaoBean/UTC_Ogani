@@ -46,6 +46,23 @@ class ProductController extends Controller
         ]);
     }
 
+    public function getListProductByBrand($id){
+        $categories = Category::all();
+        $brand = Brand::find($id);
+        $products = Product::where('brand_id', $id)->get();
+        $productsFilter = Product::where('brand_id', $id)->paginate(3);
+        $productsOnSale = $products->where('discount', '>', 0);
+        $productsLatest = Product::where('brand_id', $id)->orderby('created_at', 'DESC')->limit(6)->get();
+        return view('clientPages.product_by_brand')->with([
+            'products' => $products,
+            'productsOnSale' => $productsOnSale,
+            'categories' => $categories,
+            'productsFilter'=> $productsFilter,
+            'brand' => $brand,
+            'productsLatest' => $productsLatest,
+        ]);
+    }
+
     public function indexAdmin()
     {
         $products = Product::all();
