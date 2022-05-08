@@ -19,12 +19,12 @@
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
-                                <div class="hero__search__categories">
+                                <!-- <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do you need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                </div> -->
+                                <input type="text" placeholder="Nhập sản phẩm bạn muốn tìm...">
+                                <button type="submit" class="site-btn">Search</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
