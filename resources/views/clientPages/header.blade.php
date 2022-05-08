@@ -6,7 +6,7 @@
           <div class="header__top__left">
             <ul>
               <li><i class="fa fa-envelope"></i> thaodo@gmail.com</li>
-              <li>Free Shipping for all Order of $99</li>
+              <li>Miễn phí vân chuyển đơn từ 499.000đ</li>
             </ul>
           </div>
         </div>
@@ -23,7 +23,7 @@
               <div>English</div>
               <span class="arrow_carrot-down"></span>
               <ul>
-                <li><a href="#">Spanis</a></li>
+                <li><a href="#">Vietnamese</a></li>
                 <li><a href="#">English</a></li>
               </ul>
             </div>
@@ -32,14 +32,14 @@
                   <a href="#"><i class="fa fa-user"></i>{{Auth::user()->name}}</a>
                 </div>
                 <div class="header__top__right__auth">
-                  <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                  <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng xuất</a>
                 </div>
             @else
               <div class="header__top__right__auth">
-                <a href="/login"><i class="fa fa-user"></i> Login</a>
+                <a href="/login"><i class="fa fa-user"></i> Đăng nhập</a>
               </div>
               <div class="header__top__right__auth">
-                <a href="/register"><i class="fa fa-registered" aria-hidden="true"></i>Register</a>
+                <a href="/register"><i class="fa fa-registered" aria-hidden="true"></i>Đăng kí</a>
               </div>
             @endif
           </div>
@@ -61,7 +61,7 @@
             <li>
               <a href="#">Đơn hàng</a>
               <ul class="header__menu__dropdown">
-                <li><a href="./shop-details.html">Giỏ hàng</a></li>
+                <li><a href="{{URL::to('/my-cart')}}">Giỏ hàng</a></li>
                 <li><a href="./shoping-cart.html">Lịch sử mua hàng</a></li>
                 <!-- <li><a href="./checkout.html">Check Out</a></li>
                 <li><a href="./blog-details.html">Blog Details</a></li> -->
@@ -76,9 +76,9 @@
         <div class="header__cart">
           <ul>
             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="{{URL::to('/my-cart')}}"><i class="fa fa-shopping-bag"></i> <span>{{$totalOrder ?? 0}}</span></a></li>
           </ul>
-          <div class="header__cart__price">item: <span>$150.00</span></div>
+          <div class="header__cart__price">item: <span>{{number_format($totalPrice)}}đ</span></div>
         </div>
       </div>
     </div>

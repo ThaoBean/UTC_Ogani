@@ -18,11 +18,11 @@
         <div class="hero__search">
           <div class="hero__search__form">
             <form action="#">
-              <div class="hero__search__categories">
+              <!-- <div class="hero__search__categories">
                 All Categories
-              </div>
-              <input type="text" placeholder="What do yo u need?">
-              <button type="submit" class="site-btn">SEARCH</button>
+              </div> -->
+              <input type="text" placeholder="Nhập sản phẩm bạn muốn tìm...">
+              <button type="submit" class="site-btn">Search</button>
             </form>
           </div>
           <div class="hero__search__phone">
@@ -31,7 +31,7 @@
             </div>
             <div class="hero__search__phone__text">
               <h5>0868.128.559</h5>
-              <span>support 24/7 time</span>
+              <span>Hỗ trợ 24/7</span>
             </div>
           </div>
         </div>

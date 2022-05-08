@@ -30,6 +30,13 @@ Route::get('/products-by-category/{id}', 'ProductController@getListProductByCate
 //Product by brand
 Route::get('/products-by-brand/{id}', 'ProductController@getListProductByBrand');
 
+//Cart
+//Display cart
+Route::get('/my-cart', 'CartController@index')->middleware('checkAuth');
+//Add to cart
+Route::post('/add-to-cart/{id}', 'CartController@store')->middleware('checkAuth');
+Route::get('/continue-shopping', 'CartController@continueShopping')->middleware('checkAuth');
+Route::post('/addToCart/{id}', 'CartController@addToCart')->middleware('checkAuth');
 //Brand
 
 //Category

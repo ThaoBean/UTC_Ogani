@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="section-title">
-          <h2>Featured Product</h2>
+          <h2>Sản phẩm nổi bật</h2>
         </div>
         <div class="featured__controls">
           <ul>
@@ -24,12 +24,17 @@
               <ul class="featured__item__pic__hover">
                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                <li>
+                  <form method="post" action="{{URL::to('/add-to-cart/'.$product->id)}}">
+                    <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
+                    @csrf
+                  </form>
+                </li>
               </ul>
             </div>
             <div class="featured__item__text">
               <h6><a href="{{URL::to('/detail-product/'.$product->id)}}">{{$product->name}}</a></h6>
-              <h5>{{$product->price}}</h5>
+              <h5>{{number_format($product->price - $product->discount*0.1, 0)}}đ</h5>
             </div>
           </div>
         </div>

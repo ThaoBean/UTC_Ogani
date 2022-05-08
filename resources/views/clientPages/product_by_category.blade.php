@@ -79,7 +79,12 @@
                     <ul class="product__item__pic__hover">
                       <li><a href="#"><i class="fa fa-heart"></i></a></li>
                       <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                      <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                      <li>
+                        <form method="post" action="{{URL::to('/add-to-cart/'.$productOnSale->id)}}">
+                          <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
+                          @csrf
+                        </form>
+                      </li>
                     </ul>
                   </div>
                   <div class="product__discount__item__text">
@@ -122,7 +127,12 @@
                 <ul class="product__item__pic__hover">
                   <li><a href="#"><i class="fa fa-heart"></i></a></li>
                   <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                  <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                  <li>
+                    <form method="post" action="{{URL::to('/add-to-cart/'.$productFilter->id)}}">
+                      <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
+                      @csrf
+                    </form>
+                  </li>
                 </ul>
               </div>
               <div class="product__item__text">
