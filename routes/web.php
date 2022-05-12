@@ -37,6 +37,7 @@ Route::get('/my-cart', 'CartController@index')->middleware('checkAuth');
 Route::post('/add-to-cart/{id}', 'CartController@store')->middleware('checkAuth');
 Route::get('/continue-shopping', 'CartController@continueShopping')->middleware('checkAuth');
 Route::post('/addToCart/{id}', 'CartController@addToCart')->middleware('checkAuth');
+Route::post('/delete-product-cart/{id}', 'CartController@destroy')->middleware('checkAuth');
 //Brand
 
 //Category
