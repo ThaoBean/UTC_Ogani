@@ -25,6 +25,7 @@
                               <tr>
                                   <th class="shoping__product">Sản phẩm</th>
                                   <th>Giá</th>
+                                  <th>Giảm giá</th>
                                   <th>Số lượng</th>
                                   <th>Tồng tiền</th>
                                   <th></th>
@@ -38,7 +39,10 @@
                                       <h5><a style="color:#1c1c1c" href="{{URL::to('/detail-product/'.$mycart->product_id)}}">{{$mycart->name}}</a></h5>
                                   </td>
                                   <td class="shoping__cart__price">
-                                    {{number_format($mycart->price - $mycart->discount*0.1, 0)}}đ
+                                    {{number_format($mycart->price, 0)}}đ
+                                  </td>
+                                  <td class="shoping__cart__price">
+                                    {{number_format($mycart->price*$mycart->discount*0.01, 0)}}đ
                                   </td>
                                   <td class="shoping__cart__quantity">
                                       <div class="quantity">
@@ -48,10 +52,16 @@
                                       </div>
                                   </td>
                                   <td class="shoping__cart__total">
-                                    {{number_format(($mycart->price - $mycart->discount*0.1)*$mycart->quantity_cart, 0)}}đ
+                                    {{number_format(($mycart->price - $mycart->price*$mycart->discount*0.01)*$mycart->quantity_cart, 0)}}đ
                                   </td>
                                   <td class="shoping__cart__item__close">
-                                      <span class="icon_close"></span>
+                                    <form method="POST" action="{{URL::to('/delete-product-cart/'.$mycart->id)}}">
+                                        <button type="submit" class="show_confirm" style="border:none; background-color: transparent;">
+                                            <span class="icon_close"></span>
+                                        </button>
+                                        @csrf
+                                    </form>
+                                      
                                   </td>
                               </tr>
                             @endforeach
@@ -69,7 +79,7 @@
                   </div>
               </div>
               <div class="col-lg-6">
-                  <div class="shoping__continue">
+                  <!-- <div class="shoping__continue">
                       <div class="shoping__discount">
                           <h5>Mã giảm giá</h5>
                           <form action="#">
@@ -77,20 +87,47 @@
                               <button type="submit" class="site-btn">APPLY COUPON</button>
                           </form>
                       </div>
-                  </div>
+                  </div> -->
               </div>
               <div class="col-lg-6">
                   <div class="shoping__checkout">
-                      <h5>Cart Total</h5>
+                      <h5>Tổng tiền</h5>
                       <ul>
-                          <li>Subtotal <span>$454.98</span></li>
-                          <li>Total <span>$454.98</span></li>
+                          <li>Tiền hàng <span>{{number_format($totalPrice, 0)}}đ</span></li>
+                          @if ($totalPrice > 499000)
+                            <li>Phí vẫn chuyển <span>0đ</span></li>
+                          @else
+                            <li>Phí vẫn chuyển <span>30,000đ</span></li>
+                          @endif
+                          <li>Tổng tiền <span>{{number_format($totalPrice + 30000, 0)}}đ</span></li>
                       </ul>
-                      <a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
+                      <a href="#" class="primary-btn">Mua hàng</a>
                   </div>
               </div>
           </div>
       </div>
   </section>
 <!-- Shoping Cart Section End -->
+@endsection
+
+@section('jsDelCart')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+  <script type="text/javascript">
+    $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Bạn chắc chắn muốn xóa sản phẩm này?`,
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+  </script>
 @endsection
