@@ -81,15 +81,11 @@
             </li>
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-              <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
+              <i class="icon-graph menu-icon"></i> <span class="nav-text">Đơn hàng</span>
               </a>
               <ul aria-expanded="false">
-                <li><a href="./chart-flot.html">Flot</a></li>
-                <li><a href="./chart-morris.html">Morris</a></li>
-                <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                <li><a href="./chart-chartist.html">Chartist</a></li>
-                <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                <li><a href="./chart-peity.html">Peity</a></li>
+                <li><a href="{{ url('/admin/list-orders')}}">Danh sách đơn hàng</a></li>
+                <li><a href="{{ url('/admin/list-orders')}}">Danh sách đơn hàng mới</a></li>
               </ul>
             </li>
             <li class="nav-label">UI Components</li>

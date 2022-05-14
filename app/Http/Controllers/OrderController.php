@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Order;
 use App\Cart;
 use App\OrderDetail;
+use App\Product;
 
 class OrderController extends Controller
 {
@@ -25,7 +26,6 @@ class OrderController extends Controller
     }
 
     public function viewOrderDetails($id){
-        $user = Auth::user();
         $myOrders = OrderDetail:: where('order_id', $id)
         ->join('products', 'products.id', '=', 'order_details.product_id')
         ->select(
@@ -40,6 +40,61 @@ class OrderController extends Controller
         return view('clientPages.order_detail')->with([
             'myOrders' => $myOrders
         ]);
+    }
+
+    public function listOrdersAdmin() {
+        $listOrders = Order::all();
+        return view('adminPages.orders.list-order')->with([
+            'listOrders' => $listOrders
+        ]);
+    }
+
+    public function viewListOrdersDetailAdmin($id){
+        $orderInfo = Order::find($id);
+        $listOrdersDetail = OrderDetail:: where('order_id', $id)
+        ->join('products', 'products.id', '=', 'order_details.product_id')
+        ->select(
+            'products.name as product',
+            'products.image as image',
+            'order_details.id as order_details_id',
+            'order_details.od_quantity as unit_quantity',
+            'order_details.od_discount as unit_discount',
+            'order_details.od_price as unit_price',
+        )
+        ->get();
+        return view('adminPages.orders.order-detail')->with([
+            'listOrdersDetail' => $listOrdersDetail,
+            'orderInfo' => $orderInfo,
+        ]);
+    }
+
+    public function updateStatusOrder($id, Request $request){
+        $orderInfo = Order::find($id);
+        // $orderInfo->user_id = $orderInfo->user_id;
+        // $orderInfo->receiver = $orderInfo->receiver;
+        // $orderInfo->phone_receiver = $orderInfo->phone_receiver;
+        // $orderInfo->address_receiver = $orderInfo->address_receiver;
+        // $orderInfo->note = $orderInfo->note;
+        // $orderInfo->total_quantity = $orderInfo->total_quantity;
+        // $orderInfo->total_price = $orderInfo->total_price;
+        // $orderInfo->fee_shipping = $orderInfo->fee_shipping;
+        // $orderInfo->payment = $orderInfo->payment;
+        if($request->status == "DELIVERING"){
+            $orderInfo->status = $request->status;
+            $listOrders = OrderDetail:: where('order_id', $id)
+            ->join('products', 'products.id', '=', 'order_details.product_id')
+            ->select(
+                'products.id as product_id',
+                'order_details.od_quantity as od_quantity',
+            )->get();
+            foreach ($listOrders as $listOrder){
+                $product = Product::find($listOrder->product_id);
+                $product->quantity = $product->quantity - $listOrder->od_quantity;
+                $product->save();
+            }
+        }
+        $orderInfo->save();
+        return redirect('/admin/list-orders');
     }
 
     /**
