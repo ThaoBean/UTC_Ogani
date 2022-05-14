@@ -34,7 +34,10 @@
             </div>
             <div class="featured__item__text">
               <h6><a href="{{URL::to('/detail-product/'.$product->id)}}">{{$product->name}}</a></h6>
-              <h5>{{number_format($product->price - $product->discount*0.1, 0)}}đ</h5>
+              @if($product->discount > 0)
+                <div style="color: red; text-decoration: line-through;";>{{number_format(($product->price), 0)}}đ</div>
+              @endif              
+              <h5>{{number_format(($product->price - $product->price*$product->discount*0.01), 0)}}đ</h5>
             </div>
           </div>
         </div>

@@ -61,8 +61,8 @@
                     <!-- <span></span> -->
                     <h5><a href="{{URL::to('/detail-product/'.$productOnSale->id)}}">{{$productOnSale->name}}</a></h5>
                     <div class="product__item__price">
-                      {{number_format($productOnSale->price - $productOnSale->discount*0.1, 0)}}đ
-                      <span>{{number_format($productOnSale->price, 0)}}đ</span>
+                    {{number_format(($productOnSale->price - $productOnSale->price*$productOnSale->discount*0.01), 0)}}đ
+                      <span style="color:red;">{{number_format($productOnSale->price, 0)}}đ</span>
                     </div>
                   </div>
                 </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="col-lg-4 col-md-4">
               <div class="filter__found">
-                <h6><span>16</span> Products found</h6>
+                <h6><span>{{count($productsFilter)}}</span>Sản phẩm</h6>
               </div>
             </div>
           </div>
@@ -109,7 +109,10 @@
               </div>
               <div class="product__item__text">
                 <h6><a href="{{URL::to('/detail-product/'.$productFilter->id)}}">{{$productFilter->name}}</a></h6>
-                <h5>{{number_format($productFilter->price - $productFilter->discount*0.1, 0)}}đ</h5>
+                @if($productFilter->discount > 0)
+                  <div style="color: red; text-decoration: line-through;";>{{number_format(($productFilter->price), 0)}}đ</div>
+                @endif    
+                <h5>{{number_format(($productFilter->price - $productFilter->price*$productFilter->discount*0.01), 0)}}đ</h5>
               </div>
             </div>
           </div>

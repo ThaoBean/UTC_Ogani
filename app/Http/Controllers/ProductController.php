@@ -33,7 +33,7 @@ class ProductController extends Controller
         $category = Category::find($id);
         $brands = Brand::all();
         $products = Product::where('category_id', $id)->get();
-        $productsFilter = Product::where('category_id', $id)->paginate(3);
+        $productsFilter = Product::where('category_id', $id)->paginate(9);
         $productsOnSale = $products->where('discount', '>', 0);
         $productsLatest = Product::where('category_id', $id)->orderby('created_at', 'DESC')->limit(6)->get();
         return view('clientPages.product_by_category')->with([
@@ -50,7 +50,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $brand = Brand::find($id);
         $products = Product::where('brand_id', $id)->get();
-        $productsFilter = Product::where('brand_id', $id)->paginate(3);
+        $productsFilter = Product::where('brand_id', $id)->paginate(9);
         $productsOnSale = $products->where('discount', '>', 0);
         $productsLatest = Product::where('brand_id', $id)->orderby('created_at', 'DESC')->limit(6)->get();
         return view('clientPages.product_by_brand')->with([
