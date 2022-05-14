@@ -37,7 +37,10 @@
             <i class="fa fa-star-half-o"></i>
             <span>(18 reviews)</span>
           </div>
-          <div class="product__details__price">{{number_format($product->price - $product->discount*0.1, 0)}}đ</div>
+          @if($product->discount > 0)
+            <div style="color: red; text-decoration: line-through; font-size: 16px;";>{{number_format(($product->price), 0)}}đ</div>
+          @endif  
+          <div class="product__details__price">{{number_format(($product->price - $product->price*$product->discount*0.01), 0)}}đ</div>
           <p>{{$product->short_desc}}</p>
           @if($product->quantity > 0)
           <form method="post" action="{{URL::to('/addToCart/'.$product->id)}}" style="display:inline-flex;">
@@ -148,7 +151,10 @@
           </div>
           <div class="product__item__text">
             <h6><a href="{{URL::to('/detail-product/'.$item->id)}}">{{$item->name}}</a></h6>
-            <h5>{{number_format($product->price - $product->discount*0.1, 0)}}đ</h5>
+            @if($item->discount > 0)
+              <div style="color: red; text-decoration: line-through;";>{{number_format(($item->price), 0)}}đ</div>
+            @endif  
+            <h5>{{number_format(($item->price - $item->price*$item->discount*0.01), 0)}}đ</h5>
           </div>
         </div>
       </div>
