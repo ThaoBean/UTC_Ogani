@@ -48,7 +48,11 @@
                     <td style="display: flex">                       
                         @if($myOrder->status == "PENDING")
                           <button class="btn btn-danger btn show_confirm">
-                            <a href="" style="color: white">Hủy đơn</a>
+                            <a href="{{URL::to('/cancel-order/'.$myOrder->id)}}" style="color: white">Hủy đơn</a>
+                          </button>
+                        @elseif($myOrder->status == "CANCELED")
+                          <button class="btn btn-danger btn show_confirm">
+                            Đơn đã bị hủy
                           </button>
                         @endif
                         <button class="btn btn-success btn">
