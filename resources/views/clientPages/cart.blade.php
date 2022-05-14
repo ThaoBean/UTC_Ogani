@@ -99,9 +99,9 @@
                           @else
                             <li>Phí vẫn chuyển <span>30,000đ</span></li>
                           @endif
-                          <li>Tổng tiền <span>{{number_format($totalPrice + 30000, 0)}}đ</span></li>
+                          <li>Tổng tiền <span>{{number_format($total, 0)}}đ</span></li>
                       </ul>
-                      <a href="#" class="primary-btn">Mua hàng</a>
+                      <a href="{{URL::to('/checkout')}}" class="primary-btn">Mua hàng</a>
                   </div>
               </div>
           </div>

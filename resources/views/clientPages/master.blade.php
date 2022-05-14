@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
     @yield('cssCustomInput')
+    @yield('cssListHistoryOrder')
   </head>
   <body>
     <!-- Page Preloder -->
@@ -111,5 +112,6 @@
     <script src="{{asset('js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
     @yield('jsDelCart')
+    @yield('jsListHistoryOrder')
   </body>
 </html>
