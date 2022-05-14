@@ -150,7 +150,7 @@
   <!-- #/ container -->
 
   <!-- Change Status Order -->
-  @if($orderInfo->status !== "CANCELED" || $orderInfo->status !== "REJECT")
+  @if($orderInfo->status !== "CANCELED" && $orderInfo->status !== "REJECT")
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-lg-12">

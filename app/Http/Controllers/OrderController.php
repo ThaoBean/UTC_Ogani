@@ -68,6 +68,13 @@ class OrderController extends Controller
         ]);
     }
 
+    public function cancelOrder($id){
+        $orderInfo = Order::find($id);
+        $orderInfo->status = "CANCELED";
+        $orderInfo->save();
+        return redirect('/history-order');
+    }
+
     public function updateStatusOrder($id, Request $request){
         $orderInfo = Order::find($id);
         // $orderInfo->user_id = $orderInfo->user_id;
