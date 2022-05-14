@@ -75,3 +75,8 @@ Route::get('/admin/show-product/{id}', 'ProductController@show');
 Route::get('/admin/edit-product/{id}', 'ProductController@edit');
 Route::post('/admin/update-product/{id}', 'ProductController@update');
 Route::post('/admin/delete-product/{id}', 'ProductController@destroy');
+
+//ADM orders
+Route::get('/admin/list-orders', 'OrderController@listOrdersAdmin');
+Route::get('/admin/order-detail/{id}', 'OrderController@viewListOrdersDetailAdmin');
+Route::post('/admin/update-status-order/{id}', 'OrderController@updateStatusOrder');
