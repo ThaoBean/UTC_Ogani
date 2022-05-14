@@ -62,9 +62,7 @@
               <a href="#">Đơn hàng</a>
               <ul class="header__menu__dropdown">
                 <li><a href="{{URL::to('/my-cart')}}">Giỏ hàng</a></li>
-                <li><a href="./shoping-cart.html">Lịch sử mua hàng</a></li>
-                <!-- <li><a href="./checkout.html">Check Out</a></li>
-                <li><a href="./blog-details.html">Blog Details</a></li> -->
+                <li><a href="{{URL::to('/history-order')}}">Lịch sử mua hàng</a></li>
               </ul>
             </li>
             <li><a href="./blog.html">Blog</a></li>

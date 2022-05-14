@@ -38,6 +38,12 @@ Route::post('/add-to-cart/{id}', 'CartController@store')->middleware('checkAuth'
 Route::get('/continue-shopping', 'CartController@continueShopping')->middleware('checkAuth');
 Route::post('/addToCart/{id}', 'CartController@addToCart')->middleware('checkAuth');
 Route::post('/delete-product-cart/{id}', 'CartController@destroy')->middleware('checkAuth');
+Route::get('/checkout', 'CartController@checkout')->middleware('checkAuth');
+
+//Checkout
+Route::post('/place-order', 'OrderController@store')->middleware('checkAuth');
+Route::get('/history-order', 'OrderController@index')->middleware('checkAuth');
+Route::get('/order-detail/{id}', 'OrderController@viewOrderDetails')->middleware('checkAuth');
 //Brand
 
 //Category

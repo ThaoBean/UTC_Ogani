@@ -36,9 +36,48 @@ class CartController extends Controller
         foreach ($myCart as $cart){
             $totalPrice += ($cart->price - $cart->price*$cart->discount*0.01)*$cart->quantity_cart;
         }
+        if ($totalPrice > 499000)
+            $total = $totalPrice;
+        else
+            $total = $totalPrice + 30000;
         return view("clientPages.cart")->with([
             'myCart' => $myCart,
             'totalPrice'=>$totalPrice,
+            'total' => $total
+        ]);
+    }
+
+    public function checkout(){
+        $user = Auth::user();
+        $myCart = Cart::where('user_id', $user->id)
+        ->join('products', 'products.id', '=', 'carts.product_id')
+        ->orderByDesc('carts.updated_at')
+        ->select(
+            'carts.id as id',
+            'carts.user_id as user_id',
+            'carts.product_id as product_id',
+            'carts.quantity_cart as quantity_cart',
+            'carts.created_at as created_at',
+            'carts.updated_at as updated_at',
+            'products.discount as discount',
+            'products.price as price',
+            'products.image as image',
+            'products.name as name',
+        )->get();  
+        $totalPrice = 0;
+        $total = 0;     
+        foreach ($myCart as $cart){
+            $totalPrice += ($cart->price - $cart->price*$cart->discount*0.01)*$cart->quantity_cart;
+        }
+        if ($totalPrice > 499000)
+            $total = $totalPrice;
+        else
+            $total = $totalPrice + 30000;
+        return view("clientPages.checkout")->with([
+            'myCart' => $myCart,
+            'totalPrice'=>$totalPrice,
+            'total' => $total, 
+            'receiver' => $user->name
         ]);
     }
 
