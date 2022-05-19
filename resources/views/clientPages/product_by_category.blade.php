@@ -21,7 +21,7 @@
       <div class="col-lg-3 col-md-5">
         <div class="sidebar">
           <div class="sidebar__item">
-            <h4>Thương hiệu</h4>
+            <h4>Categories</h4>
             <ul>
               @foreach($brands as $brand)
               <li><a href="{{URL::to('/products-by-brand/'.$brand->id)}}">{{$brand->brand}}</a></li>
@@ -30,7 +30,7 @@
           </div>
           <div class="sidebar__item">
             <div class="latest-product__text">
-              <h4>Sản phẩm mới</h4>
+              <h4>Latest Products</h4>
               <div class="latest-product__slider owl-carousel">
                 <div class="latest-prdouct__slider__item">
                   @for($i=0; $i<=2; $i++)
@@ -114,7 +114,7 @@
             </div>
             <div class="col-lg-4 col-md-4">
               <div class="filter__found">
-              <h6><span>{{count($productsFilter)}}</span>Sản phẩm</h6>
+              <h6><span>{{count($productsFilter)}}</span>Products</h6>
               </div>
             </div>
           </div>

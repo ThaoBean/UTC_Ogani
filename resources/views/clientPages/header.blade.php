@@ -6,7 +6,7 @@
           <div class="header__top__left">
             <ul>
               <li><i class="fa fa-envelope"></i> thaodo@gmail.com</li>
-              <li>Miễn phí vân chuyển đơn từ 499.000đ</li>
+              <li>Free Shipping for all Order from 499.000đ</li>
             </ul>
           </div>
         </div>
@@ -32,14 +32,14 @@
                   <a href="#"><i class="fa fa-user"></i>{{Auth::user()->name}}</a>
                 </div>
                 <div class="header__top__right__auth">
-                  <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng xuất</a>
+                  <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                 </div>
             @else
               <div class="header__top__right__auth">
-                <a href="/login"><i class="fa fa-user"></i> Đăng nhập</a>
+                <a href="/login"><i class="fa fa-user"></i> Login</a>
               </div>
               <div class="header__top__right__auth">
-                <a href="/register"><i class="fa fa-registered" aria-hidden="true"></i>Đăng kí</a>
+                <a href="/register"><i class="fa fa-registered" aria-hidden="true"></i>Register</a>
               </div>
             @endif
           </div>
@@ -57,16 +57,16 @@
       <div class="col-lg-6">
         <nav class="header__menu">
           <ul>
-            <li class="active"><a href="{{URL::to('/')}}">Trang chủ</a></li>
+            <li class="active"><a href="{{URL::to('/')}}">Home</a></li>
             <li>
-              <a href="#">Đơn hàng</a>
+              <a href="#">My order</a>
               <ul class="header__menu__dropdown">
-                <li><a href="{{URL::to('/my-cart')}}">Giỏ hàng</a></li>
-                <li><a href="{{URL::to('/history-order')}}">Lịch sử mua hàng</a></li>
+                <li><a href="{{URL::to('/my-cart')}}">My Cart</a></li>
+                <li><a href="{{URL::to('/history-order')}}">History order</a></li>
               </ul>
             </li>
             <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Liên hệ</a></li>
+            <li><a href="./contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>

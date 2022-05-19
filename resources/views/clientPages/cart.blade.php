@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <div class="breadcrumb__text">
-          <h2>Giỏ hàng</h2>
+          <h2>My Cart</h2>
         </div>
       </div>
     </div>
@@ -23,11 +23,11 @@
                       <table>
                           <thead>
                               <tr>
-                                  <th class="shoping__product">Sản phẩm</th>
-                                  <th>Giá</th>
-                                  <th>Giảm giá</th>
-                                  <th>Số lượng</th>
-                                  <th>Tồng tiền</th>
+                                  <th class="shoping__product">Product</th>
+                                  <th>Price</th>
+                                  <th>Discount</th>
+                                  <th>Quantity</th>
+                                  <th>Total Item</th>
                                   <th></th>
                               </tr>
                           </thead>
@@ -73,9 +73,9 @@
           <div class="row">
               <div class="col-lg-12">
                   <div class="shoping__cart__btns">
-                      <a href="{{URL::to('/continue-shopping')}}" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
+                      <a href="{{URL::to('/continue-shopping')}}" class="primary-btn cart-btn">Continue shopping</a>
                       <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                          Cập nhật giỏ hàng</a>
+                          Update cart</a>
                   </div>
               </div>
               <div class="col-lg-6">
@@ -91,17 +91,17 @@
               </div>
               <div class="col-lg-6">
                   <div class="shoping__checkout">
-                      <h5>Tổng tiền</h5>
+                      <h5>Total</h5>
                       <ul>
-                          <li>Tiền hàng <span>{{number_format($totalPrice, 0)}}đ</span></li>
+                          <li>Total Items <span>{{number_format($totalPrice, 0)}}đ</span></li>
                           @if ($totalPrice > 499000)
-                            <li>Phí vẫn chuyển <span>0đ</span></li>
+                            <li>Fee shipping <span>0đ</span></li>
                           @else
-                            <li>Phí vẫn chuyển <span>30,000đ</span></li>
+                            <li>Fee shipping <span>30,000đ</span></li>
                           @endif
-                          <li>Tổng tiền <span>{{number_format($total, 0)}}đ</span></li>
+                          <li>Total money <span>{{number_format($total, 0)}}đ</span></li>
                       </ul>
-                      <a href="{{URL::to('/checkout')}}" class="primary-btn">Mua hàng</a>
+                      <a href="{{URL::to('/checkout')}}" class="primary-btn">Checkout</a>
                   </div>
               </div>
           </div>

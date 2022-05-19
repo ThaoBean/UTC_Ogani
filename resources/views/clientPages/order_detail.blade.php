@@ -23,11 +23,11 @@
               <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
-                    <th>Ảnh</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Giảm giá</th>
-                    <th>Tổng tiền</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Quantity item</th>
+                    <th>Discount</th>
+                    <th>Total Item</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -45,7 +45,7 @@
                     <td>{{number_format($myOrder->unit_price, 0)}}đ</td>
                     <td style="display: flex">                       
                         <form method="POST" action="">
-                          <button type="submit" class="btn btn-info btn">Đánh giá sản phẩm</button>
+                          <button type="submit" class="btn btn-info btn">Product reviews</button>
                           @csrf
                         </form>
                       </td>
@@ -54,11 +54,11 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                  <th>Ảnh</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Giảm giá</th>
-                    <th>Tổng tiền</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Quantity item</th>
+                    <th>Discount</th>
+                    <th>Total Item</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>
