@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                  <h2>Lịch sử mua hàng</h2>
+                  <h2>History order</h2>
                 </div>
               </div>
             </div>
@@ -23,12 +23,12 @@
               <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
-                    <th>Mã đơn hàng</th>
+                    <th>ID order</th>
                     <!-- <th>Người nhận</th>
                     <th>Địa chỉ</th> -->
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                    <th>Ngày đặt</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th>Date order</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -48,15 +48,15 @@
                     <td style="display: flex">                       
                         @if($myOrder->status == "PENDING")
                           <button class="btn btn-danger btn show_confirm">
-                            <a href="{{URL::to('/cancel-order/'.$myOrder->id)}}" style="color: white">Hủy đơn</a>
+                            <a href="{{URL::to('/cancel-order/'.$myOrder->id)}}" style="color: white">Cancel order</a>
                           </button>
                         @elseif($myOrder->status == "CANCELED")
                           <button class="btn btn-danger btn show_confirm">
-                            Đơn đã bị hủy
+                            Order canceled
                           </button>
                         @endif
                         <button class="btn btn-success btn">
-                          <a href="{{URL::to('/order-detail/'.$myOrder->id)}}" style="color: white">Xem chi tiết</a>
+                          <a href="{{URL::to('/order-detail/'.$myOrder->id)}}" style="color: white">View detail</a>
                         </button>
                       </td>
                   </tr>
@@ -64,10 +64,10 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                    <th>Ngày đặt</th>
+                    <th>ID order</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th>Date order</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>

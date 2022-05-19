@@ -52,21 +52,21 @@
                 </div>
             </div>
             <button type="submit" style="border: none; background-color: transparent;">
-                <a class="primary-btn">Thêm vào giỏ hàng</a>
+                <a class="primary-btn">Add to cart</a>
             </button>
             @csrf
           </form>
           @else
-          <a href="#" class="primary-btn">Hết hàng</a>
+          <a href="#" class="primary-btn">Out of stock</a>
           @endif
           <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
           @error('quantity_cart')
             <div class="text-danger" >{{ $message }}</div>
         @enderror
           <ul>
-            <li><b>Thương hiệu</b> <span>{{$brand->brand}}</span></li>
-            <li><b>Danh mục</b> <span>{{$category->category}}</span></li>
-            <li><b>Trạng thái</b> <span>@if($product->quantity > 0) Còn hàng @else Hết hàng @endif</span></li>
+            <li><b>Brand</b> <span>{{$brand->brand}}</span></li>
+            <li><b>Category</b> <span>{{$category->category}}</span></li>
+            <li><b>Status</b> <span>@if($product->quantity > 0) Available @else Out of stock @endif</span></li>
             <li>
               <b>Share on</b>
               <div class="share">
@@ -84,17 +84,17 @@
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                aria-selected="true">Chi tiết sản phẩm</a>
+                aria-selected="true">Detail Product</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                aria-selected="false">Đánh giá</a>
+                aria-selected="false">Reviews</a>
             </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tabs-1" role="tabpanel">
               <div class="product__details__tab__desc detail_desc">
-                <h6>Thông tin chi tiết sản phẩm {{$product->name}}</h6>
+                <h6>Detail product: {{$product->name}}</h6>
                 <p>{!!$product->description!!}</p>
               </div>
             </div>
@@ -134,7 +134,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="section-title related__product__title">
-          <h2>Sản phẩm tương tự</h2>
+          <h2>Related products</h2>
         </div>
       </div>
     </div>
