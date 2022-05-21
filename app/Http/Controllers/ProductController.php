@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Brand;
 use App\Category;
 use App\Product;
+use App\ReviewProduct;
+use App\OrderDetail;
 use File;
 use WithPagination;
 
@@ -372,6 +374,21 @@ class ProductController extends Controller
             unlink($image_path5);
         }
         $product->delete();
+        return back();
+    }
+
+    public function reviewProduct($product_id, $order_detail_id, Request $request){
+        $newReview = new ReviewProduct();
+        $newReview->product_id = $product_id;
+        $newReview->order_detail_id = $order_detail_id;
+        if($request->rating == null){
+            $newReview->quantity_star = 5;
+        }
+        else{
+            $newReview->quantity_star = $request->rating;
+        }
+        $newReview->review = $request->review;
+        $newReview->save();
         return back();
     }
 }

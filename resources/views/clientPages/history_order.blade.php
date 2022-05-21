@@ -29,6 +29,7 @@
                     <th>Quantity</th>
                     <th>Total price</th>
                     <th>Date order</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -45,6 +46,7 @@
                       @endif
                     </td>
                     <td>{{$myOrder->created_at}}</td>
+                    <td>{{$myOrder->status}}</td>
                     <td style="display: flex">                       
                         @if($myOrder->status == "PENDING")
                           <button class="btn btn-danger btn show_confirm">
@@ -62,15 +64,16 @@
                   </tr>
                   @endforeach              
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                   <tr>
                     <th>ID order</th>
                     <th>Quantity</th>
                     <th>Total price</th>
                     <th>Date order</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
           </div>

@@ -26,9 +26,12 @@ class OrderController extends Controller
     }
 
     public function viewOrderDetails($id){
+        $statusOrder = Order::find($id);
         $myOrders = OrderDetail:: where('order_id', $id)
         ->join('products', 'products.id', '=', 'order_details.product_id')
+        // ->join('review_products', 'review_products.order_detail_id', '=', )
         ->select(
+            'products.id as product_id',
             'products.name as product',
             'products.image as image',
             'order_details.id as order_details_id',
@@ -38,7 +41,8 @@ class OrderController extends Controller
         )
         ->get();
         return view('clientPages.order_detail')->with([
-            'myOrders' => $myOrders
+            'myOrders' => $myOrders,
+            'orderStatus' => $statusOrder->status,
         ]);
     }
 

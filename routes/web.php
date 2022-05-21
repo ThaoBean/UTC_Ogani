@@ -49,6 +49,9 @@ Route::post('/place-order', 'OrderController@store')->middleware('checkAuth');
 Route::get('/history-order', 'OrderController@index')->middleware('checkAuth');
 Route::get('/order-detail/{id}', 'OrderController@viewOrderDetails')->middleware('checkAuth');
 Route::get('/cancel-order/{id}', 'OrderController@cancelOrder')->middleware('checkAuth');
+
+//Review product
+Route::post('/review-product/{product_id}/{order_detail_id}', 'ProductController@reviewProduct')->middleware('checkAuth');
 //Brand
 
 //Category
