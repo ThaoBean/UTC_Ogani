@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
+use App\User;
+use File;
 
 class LoginController extends Controller
 {
@@ -37,9 +41,12 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function myProfile()
     {
-        //
+        $user = Auth::user();
+        return view('clientPages.my_profile')->with([
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -48,9 +55,45 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function updateProfile(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'avatar' => 'required|mimes:jpeg,png,jpg|max:2048'
+        ],[
+            'name.required' => 'Username is required!',
+            'avatar.required' => 'Enter one image for this profile.',
+            'avatar.mimes' => 'The image must have the extension jpge, png, jpg',
+            'avatar.max' => 'Photos up to 2048MB in size'
+        ]);
+        $user = Auth::user();
+        $u = new User();
+        if ($request->hasFile('avatar')){
+            $image_path = public_path("storage/images/".$user->avatar);
+            if (File::exists($image_path)) {
+                File::delete($image_path);
+            }
+            $image = $request->file('avatar');
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/images');
+            $image->move($destinationPath, $image_name);
+            $user->avatar = $image_name;
+        }
+        $user->name = $request->name;
+        $user->save();
+        return redirect('/my-profile');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+   
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        return redirect('/');
     }
 
     /**

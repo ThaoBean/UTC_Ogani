@@ -23,6 +23,10 @@ Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 Route::get('/logout', 'LoginController@logout');
 
+//My account
+Route::get('/my-profile', 'LoginController@myProfile')->middleware('checkAuth');
+Route::post('/update-my-acc', 'LoginController@updateProfile')->middleware('checkAuth');
+Route::post('/change-password', 'LoginController@changePassword')->middleware('checkAuth');
 //Product
 Route::get('/detail-product/{id}', 'ProductController@getProductById');
 //Products by category

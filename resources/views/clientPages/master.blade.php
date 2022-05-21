@@ -38,7 +38,8 @@
     <!-- Latest Product Section End -->
     
     <!-- Blog Section Begin -->
-    <section class="from-blog spad">
+
+    <!-- <section class="from-blog spad">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -95,7 +96,8 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
+    
     <!-- Blog Section End -->
     <!-- Footer Section Begin -->
     @include("clientPages.footer")
@@ -113,5 +115,7 @@
     <script src="{{asset('js/main.js')}}"></script>
     @yield('jsDelCart')
     @yield('jsListHistoryOrder')
+    @yield('jsMyProfile')
+
   </body>
 </html>
