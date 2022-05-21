@@ -29,7 +29,7 @@
             </div>
             @if (Auth::check())
                 <div class="header__top__right__auth">
-                  <a href="#"><i class="fa fa-user"></i>{{Auth::user()->name}}</a>
+                  <a href="{{URL::to('/my-profile')}}"><i class="fa fa-user"></i>{{Auth::user()->name}}</a>
                 </div>
                 <div class="header__top__right__auth">
                   <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
