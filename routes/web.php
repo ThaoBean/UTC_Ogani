@@ -52,6 +52,11 @@ Route::get('/cancel-order/{id}', 'OrderController@cancelOrder')->middleware('che
 
 //Review product
 Route::post('/review-product/{product_id}/{order_detail_id}', 'ProductController@reviewProduct')->middleware('checkAuth');
+
+//Contact
+Route::get('/contact-us', 'ContactController@index');
+Route::post('/send-contact', 'ContactController@store');
+
 //Brand
 
 //Category
