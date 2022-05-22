@@ -117,6 +117,6 @@
     @yield('jsDelCart')
     @yield('jsListHistoryOrder')
     @yield('jsMyProfile')
-
+    @yield('jsCloseAlert')
   </body>
 </html>

@@ -59,14 +59,14 @@
           <ul>
             <li class="active"><a href="{{URL::to('/')}}">Home</a></li>
             <li>
-              <a href="#">My order</a>
+              <a href="">My order</a>
               <ul class="header__menu__dropdown">
                 <li><a href="{{URL::to('/my-cart')}}">My Cart</a></li>
                 <li><a href="{{URL::to('/history-order')}}">History order</a></li>
               </ul>
             </li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+            <li><a style="color:red;" href="./blog.html">Sale off</a></li>
+            <li><a href="{{URL::to('/contact-us')}}">Contact</a></li>
           </ul>
         </nav>
       </div>

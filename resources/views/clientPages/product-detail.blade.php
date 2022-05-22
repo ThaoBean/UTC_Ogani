@@ -106,7 +106,7 @@
                       <div class="review_item">
                           <div class="media">
                               <div class="d-flex">
-                                  <img style="width: 50px; height: 50px; border-radius: 50%;" src="https://chuangheta.com/wp-content/uploads/2020/10/kem-tay-te-bao-chet-la-gi.jpg" alt="">
+                                  <img style="width: 50px; height: 50px; border-radius: 50%;" src="{{URL::to('storage/images/'.$reviewProduct->avatar)}}" alt="">
                               </div>
                               <div class="media-body">
                                   <h4>{{$reviewProduct->username}}</h4>
