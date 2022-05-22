@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Brand;
 use App\Category;
 use App\Product;
@@ -23,11 +24,20 @@ class ProductController extends Controller
         $category = Category::find($product->category_id);
         $brand = Brand::find($product->brand_id);
         $productRelated = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
+        $listReviewProduct = ReviewProduct::where('product_id', $id)
+        ->join('users', 'users.id', '=', 'review_products.user_id')
+        ->select(
+            'users.name as username',
+            'users.avatar as avatar',
+            'review_products.quantity_star as quantity_star',
+            'review_products.review as review',
+        )->get();
         return view('clientPages.product-detail')->with([
             'product' => $product,
             'category' => $category,
             'brand' => $brand,
-            'productRelated' => $productRelated
+            'productRelated' => $productRelated,
+            'listReviewProduct' => $listReviewProduct,
         ]);
     }
 
@@ -378,7 +388,9 @@ class ProductController extends Controller
     }
 
     public function reviewProduct($product_id, $order_detail_id, Request $request){
+        $user = Auth::user();
         $newReview = new ReviewProduct();
+        $newReview->user_id = $user->id;
         $newReview->product_id = $product_id;
         $newReview->order_detail_id = $order_detail_id;
         if($request->rating == null){
