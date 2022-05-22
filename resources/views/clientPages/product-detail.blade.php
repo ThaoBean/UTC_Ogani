@@ -35,7 +35,7 @@
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star-half-o"></i>
-            <span>(18 reviews)</span>
+            <span>({{count($listReviewProduct)}} reviews)</span>
           </div>
           @if($product->discount > 0)
             <div style="color: red; text-decoration: line-through; font-size: 16px;";>{{number_format(($product->price), 0)}}đ</div>
@@ -99,27 +99,29 @@
               </div>
             </div>
             <div class="tab-pane" id="tabs-2" role="tabpanel">
-              <div class="product__details__tab__desc">
-                <h6>Products Infomation</h6>
-                <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                  Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                  Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                  sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                  eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                  Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                  sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                  diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                  ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                  Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                  Proin eget tortor risus.
-                </p>
-                <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                  elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                  porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                  nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                </p>
-              </div>
+                <div class="product__details__tab__desc">
+                    <h6>Products Review</h6>
+                    @if(count($listReviewProduct) > 0)
+                      @foreach( $listReviewProduct as $reviewProduct)
+                      <div class="review_item">
+                          <div class="media">
+                              <div class="d-flex">
+                                  <img style="width: 50px; height: 50px; border-radius: 50%;" src="https://chuangheta.com/wp-content/uploads/2020/10/kem-tay-te-bao-chet-la-gi.jpg" alt="">
+                              </div>
+                              <div class="media-body">
+                                  <h4>{{$reviewProduct->username}}</h4>
+                                  @for($i=1; $i <= $reviewProduct->quantity_star; $i++)
+                                    <i class="fa fa-star"></i>
+                                  @endfor 
+                              </div>
+                          </div>
+                          <p>{{$reviewProduct->review}}</p>
+                      </div>
+                      @endforeach
+                    @else
+                      <p style="text-align: center;">There are no reviews for this product yet. Buy now and be the first to review.</p>
+                    @endif
+                </div>
             </div>
           </div>
         </div>
@@ -163,4 +165,8 @@
   </div>
 </section>
 <!-- Related Product Section End -->
+@endsection
+
+@section('cssReviewProduct')
+  <link href="{{asset('css/review_product.css')}}" rel="stylesheet">
 @endsection

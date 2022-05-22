@@ -29,7 +29,6 @@ class OrderController extends Controller
         $statusOrder = Order::find($id);
         $myOrders = OrderDetail:: where('order_id', $id)
         ->join('products', 'products.id', '=', 'order_details.product_id')
-        // ->join('review_products', 'review_products.order_detail_id', '=', )
         ->select(
             'products.id as product_id',
             'products.name as product',
@@ -38,8 +37,7 @@ class OrderController extends Controller
             'order_details.od_quantity as unit_quantity',
             'order_details.od_discount as unit_discount',
             'order_details.od_price as unit_price',
-        )
-        ->get();
+        )->get();
         return view('clientPages.order_detail')->with([
             'myOrders' => $myOrders,
             'orderStatus' => $statusOrder->status,
