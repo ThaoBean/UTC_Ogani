@@ -51,7 +51,7 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="header__logo">
-          <a href="./index.html"><img src="{{asset('img/logo.png')}}" alt=""></a>
+          <a href="{{URL::to('/')}}"><img src="{{asset('img/logo.png')}}" alt=""></a>
         </div>
       </div>
       <div class="col-lg-6">
@@ -73,7 +73,7 @@
       <div class="col-lg-3">
         <div class="header__cart">
           <ul>
-            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="{{URL::to('/list-my-favorite-product')}}"><i class="fa fa-heart"></i> <span>{{$totalFavorite ?? 0}}</span></a></li>
             <li><a href="{{URL::to('/my-cart')}}"><i class="fa fa-shopping-bag"></i> <span>{{$totalOrder ?? 0}}</span></a></li>
           </ul>
           <div class="header__cart__price">item: <span>{{number_format($totalPrice)}}đ</span></div>

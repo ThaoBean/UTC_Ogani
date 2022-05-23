@@ -1,6 +1,16 @@
 @extends('clientPages.master')
 @section('content')
 @include("clientPages.brand_")
+@if($success = Session::get('success'))
+<div class="fixed-bottom">
+  <div class="col-lg-3 col-md-12">
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success! </strong> {{$success}}
+    </div>
+  </div>
+</div>
+@endif
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-fresh-and-elegant-background-cosmetics-banner-material-image_131723.jpg">
   <div class="container">
@@ -77,8 +87,8 @@
                     data-setbg="{{URL::to('storage/images/'.$productOnSale->image)}}">
                     <div class="product__discount__percent">{{number_format($productOnSale->discount, 0)}}%</div>
                     <ul class="product__item__pic__hover">
-                      <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                      <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                      <li><a href="{{URL::to('/add-to-favorite/'.$productOnSale->id)}}"><i class="fa fa-heart"></i></a></li>
+                      <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                       <li>
                         <form method="post" action="{{URL::to('/add-to-cart/'.$productOnSale->id)}}">
                           <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
@@ -125,8 +135,8 @@
             <div class="product__item">
               <div class="product__item__pic set-bg" data-setbg="{{URL::to('storage/images/'.$productFilter->image)}}">
                 <ul class="product__item__pic__hover">
-                  <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                  <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                  <li><a href="{{URL::to('/add-to-favorite/'.$productFilter->id)}}"><i class="fa fa-heart"></i></a></li>
+                  <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                   <li>
                     <form method="post" action="{{URL::to('/add-to-cart/'.$productFilter->id)}}">
                       <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
@@ -156,4 +166,13 @@
   </div>
 </section>
 <!-- Product Section End -->
+@endsection
+@section('jsCloseAlert')
+<script type="text/javascript">
+  $(document).ready(function() {
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 5000);
+  });
+</script>
 @endsection

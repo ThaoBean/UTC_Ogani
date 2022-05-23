@@ -1,3 +1,13 @@
+@if($success = Session::get('success'))
+<div class="fixed-bottom">
+  <div class="col-lg-3 col-md-12">
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success! </strong> {{$success}}
+    </div>
+  </div>
+</div>
+@endif
 <section class="featured spad">
   <div class="container">
     <div class="row">
@@ -22,8 +32,8 @@
           <div class="featured__item">
             <div class="featured__item__pic set-bg" data-setbg="storage/images/{{$product->image}}">
               <ul class="featured__item__pic__hover">
-                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                <li><a href="{{URL::to('/add-to-favorite/'.$product->id)}}"><i class="fa fa-heart"></i></a></li>
+                <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                 <li>
                   <form method="post" action="{{URL::to('/add-to-cart/'.$product->id)}}">
                     <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
@@ -46,3 +56,12 @@
     </div>
   </div>
 </section>
+@section('jsCloseAlert')
+<script type="text/javascript">
+  $(document).ready(function() {
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 5000);
+  });
+</script>
+@endsection

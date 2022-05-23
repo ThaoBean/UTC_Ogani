@@ -57,6 +57,9 @@ Route::post('/review-product/{product_id}/{order_detail_id}', 'ProductController
 Route::get('/contact-us', 'ContactController@index');
 Route::post('/send-contact', 'ContactController@store');
 
+//Favorite
+Route::get('/add-to-favorite/{id}', 'UserFavoriteController@store')->middleware('checkAuth');
+Route::get('/list-my-favorite-product', 'UserFavoriteController@index')->middleware('checkAuth');
 //Brand
 
 //Category

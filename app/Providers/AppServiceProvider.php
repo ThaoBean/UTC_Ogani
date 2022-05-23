@@ -5,6 +5,7 @@ use App\Brand;
 use App\Category;
 use App\Product;
 use App\Cart;
+use App\UserFavorite;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -48,10 +49,13 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('clientPages.header', function($view){
             $totalOrder = 0;
             $totalPrice = 0;
+            $totalFavorite = 0;
             if(Auth::check()){
                 $user = Auth::user();
                 $myCart = Cart::where('user_id', $user->id)->join('products', 'products.id', '=', 'carts.product_id')->get();
+                $listProductFavorite = UserFavorite::where('user_id', $user->id)->get();
                 $totalOrder = count($myCart);
+                $totalFavorite = count($listProductFavorite);
                 foreach ($myCart as $cart){
                     $totalPrice += ($cart->price - $cart->discount*0.1)*$cart->quantity_cart;
                 }
@@ -59,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with([
                 'totalOrder' => $totalOrder,
                 'totalPrice' => $totalPrice,
+                'totalFavorite' => $totalFavorite,
             ]);
         });
     }
