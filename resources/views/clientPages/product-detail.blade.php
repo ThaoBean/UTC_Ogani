@@ -4,6 +4,16 @@
 @endsection
 @section('content')
 @include("clientPages.brand_")
+@if($success = Session::get('success'))
+<div class="fixed-bottom">
+  <div class="col-lg-3 col-md-12">
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success! </strong> {{$success}}
+    </div>
+  </div>
+</div>
+@endif
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
   <div class="container">
@@ -59,7 +69,7 @@
           @else
           <a href="#" class="primary-btn">Out of stock</a>
           @endif
-          <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+          <a href="{{URL::to('/add-to-favorite/'.$product->id)}}" class="heart-icon"><span class="icon_heart_alt"></span></a>
           @error('quantity_cart')
             <div class="text-danger" >{{ $message }}</div>
         @enderror
@@ -147,7 +157,7 @@
           <div class="product__item__pic set-bg" data-setbg="{{URL::to('storage/images/'.$item->image)}}">
             <ul class="product__item__pic__hover">
               <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+              <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
               <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
             </ul>
           </div>
@@ -169,4 +179,13 @@
 
 @section('cssReviewProduct')
   <link href="{{asset('css/review_product.css')}}" rel="stylesheet">
+@endsection
+@section('jsCloseAlert')
+<script type="text/javascript">
+  $(document).ready(function() {
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 5000);
+  });
+</script>
 @endsection

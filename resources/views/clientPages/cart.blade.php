@@ -31,6 +31,7 @@
                                   <th></th>
                               </tr>
                           </thead>
+                          @if(count($myCart) > 0)
                           <tbody>
                             @foreach($myCart as $mycart)
                               <tr>
@@ -66,6 +67,11 @@
                               </tr>
                             @endforeach
                           </tbody>
+                          @else
+                          <tbody>
+                            <tr><td colspan="5">Cart is empty</td></tr>
+                          </tbody>
+                          @endif
                       </table>
                   </div>
               </div>
@@ -74,8 +80,10 @@
               <div class="col-lg-12">
                   <div class="shoping__cart__btns">
                       <a href="{{URL::to('/continue-shopping')}}" class="primary-btn cart-btn">Continue shopping</a>
+                      @if(count($myCart) > 0)
                       <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                           Update cart</a>
+                      @endif
                   </div>
               </div>
               <div class="col-lg-6">
@@ -89,6 +97,7 @@
                       </div>
                   </div> -->
               </div>
+              @if(count($myCart) > 0)
               <div class="col-lg-6">
                   <div class="shoping__checkout">
                       <h5>Total</h5>
@@ -104,6 +113,7 @@
                       <a href="{{URL::to('/checkout')}}" class="primary-btn">Checkout</a>
                   </div>
               </div>
+              @endif
           </div>
       </div>
   </section>
