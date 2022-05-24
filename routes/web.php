@@ -33,6 +33,8 @@ Route::get('/detail-product/{id}', 'ProductController@getProductById');
 Route::get('/products-by-category/{id}', 'ProductController@getListProductByCategory');
 //Product by brand
 Route::get('/products-by-brand/{id}', 'ProductController@getListProductByBrand');
+//Product sale off
+Route::get('/products-sale-off', 'ProductController@listSaleOff');
 
 //Cart
 //Display cart

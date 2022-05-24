@@ -9,7 +9,9 @@ use App\Category;
 use App\Product;
 use App\ReviewProduct;
 use App\OrderDetail;
+use App\UserFavorite;
 use File;
+use DB;
 use WithPagination;
 
 class ProductController extends Controller
@@ -402,5 +404,31 @@ class ProductController extends Controller
         $newReview->review = $request->review;
         $newReview->save();
         return back();
+    }
+
+    public function listSaleOff(){
+        // if(Auth::check()){
+        //     $user = Auth::user();
+        //     $products = Product::where('discount', '>', 0)
+        //     ->leftJoin('user_favorites', 'user_favorites.product_id', '=', 'products.id')
+        //     ->select('products.*', 'user_favorites.user_id as user_id')
+        //     ->get();
+
+        //     return view('clientPages.sale_off')->with([
+        //         'products' => $products,
+        //         'user_id' => $user->id,
+        //     ]);
+        // }else{
+        //     $products = Product::where('discount', '>', 0)->orderByDesc('updated_at')
+        //     ->paginate(8);
+        //     return view('clientPages.sale_off')->with([
+        //         'products' => $products,
+        //     ]);
+        // }
+        $products = Product::where('discount', '>', 0)->orderByDesc('updated_at')
+            ->paginate(8);
+        return view('clientPages.sale_off')->with([
+            'products' => $products,
+        ]);
     }
 }

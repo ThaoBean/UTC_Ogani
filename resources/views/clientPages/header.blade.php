@@ -65,7 +65,7 @@
                 <li><a href="{{URL::to('/history-order')}}">History order</a></li>
               </ul>
             </li>
-            <li><a style="color:red;" href="./blog.html">Sale off</a></li>
+            <li><a style="color:red;" href="{{URL::to('/products-sale-off')}}">Sale off</a></li>
             <li><a href="{{URL::to('/contact-us')}}">Contact</a></li>
           </ul>
         </nav>
