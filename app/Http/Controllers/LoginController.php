@@ -140,4 +140,9 @@ class LoginController extends Controller
     {
         //
     }
+
+    public function getAllUsers(){
+        $users = User::all();
+        return view('adminPages.users.list-user')->with('users', $users);
+    }
 }
