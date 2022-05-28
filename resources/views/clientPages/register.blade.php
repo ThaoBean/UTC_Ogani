@@ -74,7 +74,7 @@
 					</div>
 
 					<div class="text-center p-t-30">
-						<a class="txt2" href="/form-login">
+						<a class="txt2" href="{{URL::to('/login')}}">
 							Login
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
