@@ -57,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
                 $totalOrder = count($myCart);
                 $totalFavorite = count($listProductFavorite);
                 foreach ($myCart as $cart){
-                    $totalPrice += ($cart->price - $cart->discount*0.1)*$cart->quantity_cart;
+                    $totalPrice += ($cart->price - $cart->price*$cart->discount*0.01)*$cart->quantity_cart;
                 }
             }            
             $view->with([
