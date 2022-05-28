@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Sản phẩm</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Products</a></li>
       </ol>
     </div>
   </div>
@@ -22,10 +22,10 @@
               <form class="form-valide" action="{{URL::to('/admin/store-product')}}" method="post" enctype="multipart/form-data">
                 <!-- Name -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Tên sản phẩm <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Product <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
-                    <input type="text" class="form-control" name="product" placeholder="Nhập tên sản phẩm">
+                    <input type="text" class="form-control" name="product" placeholder="Enter name product">
                   </div>
                 </div>
                 </div>
@@ -40,16 +40,16 @@
                 <!-- End -->
                 <!-- Short-desc -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Giới thiệu sản phẩm</span>
+                  <label class="col-lg-2 col-form-label">Short description</span>
                   </label>
                   <div class="col-lg-8">
-                    <textarea  rows="3" class="form-control" name="short_desc" placeholder="Nhập thông tin ngắn giới thiệu sản phẩm"></textarea>
+                    <textarea  rows="3" class="form-control" name="short_desc" placeholder="Enter short description"></textarea>
                   </div>
                 </div>
                 <!-- End -->
                 <!-- Description -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Chi tiết sản phẩm <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Description <span class="text-danger">*</span>
                   </label>
                   <!-- <div class="col-lg-8">
                     <input type="text" class="form-control" name="description" placeholder="Nhập thông tin chi tiết sản phẩm">
@@ -69,10 +69,10 @@
                 <!-- End -->
                 <!-- Price -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Giá sản phẩm <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" >Price <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='')" class="form-control" min="1" name="price" placeholder="Nhập giá sản phẩm">
+                    <input type="number" oninput="validity.valid||(value='')" class="form-control" min="1" name="price" placeholder="Enter price">
                   </div>
                 </div>
                 @error('price')
@@ -86,18 +86,18 @@
                 <!-- End -->
                 <!-- Discount -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Giảm giá </label>
+                  <label class="col-lg-2 col-form-label" >Discount </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='')" class="form-control" min="0" max="100" name="discount" placeholder="Nhập % giá giảm">
+                    <input type="number" oninput="validity.valid||(value='')" class="form-control" min="0" max="100" name="discount" placeholder="Enter percent discount">
                   </div>
                 </div>               
                 <!-- End -->
                 <!-- Quantity -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Số lượng <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" >Quantity </span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='')" min="0" class="form-control" name="quantity" placeholder="Nhập số lượng sản phẩm">
+                    <input type="number" oninput="validity.valid||(value='')" min="0" class="form-control" name="quantity" placeholder="Enter quantity">
                   </div>
                 </div>
                 @error('quantity')
@@ -111,11 +111,11 @@
                 <!-- End -->
                 <!-- Choose brand -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" for="val-skill">Thương hiệu <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" for="val-skill">Brand <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
                     <select class="form-control" id="val-skill" name="brand">
-                      <option>Chọn thương hiệu</option>
+                      <option>Choose brand</option>
                       @foreach($brands as $brand)
                         <option value="{{$brand->id}}">{{$brand->brand}}</option>
                       @endforeach;
@@ -133,11 +133,11 @@
                 <!-- End -->
                 <!-- Choose Category -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" for="val-skill">Danh mục <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" for="val-skill">Category <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
                     <select class="form-control" id="val-skill" name="category">
-                      <option>Chọn danh mục</option>
+                      <option>Choose Category</option>
                       @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->category}}</option>
                       @endforeach;
@@ -155,7 +155,7 @@
                 <!-- End -->
                 <!-- Primary image -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chính <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Primary Image <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview" style="width: 200px; height: 200px; display: none;"/>
@@ -173,7 +173,7 @@
                 <!-- End -->
                 <!-- Detail Image -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 1 <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 1 <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview1" style="width: 200px; height: 200px; display: none;"/>
@@ -189,7 +189,7 @@
                 </div>
                 @enderror
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 2<span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 2<span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview2" style="width: 200px; height: 200px; display: none;"/>
@@ -205,7 +205,7 @@
                 </div>
                 @enderror
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 3 <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 3 <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview3" style="width: 200px; height: 200px; display: none;"/>
@@ -221,7 +221,7 @@
                 </div>
                 @enderror
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 4<span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 4<span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview4" style="width: 200px; height: 200px; display: none;"/>
@@ -237,7 +237,7 @@
                 </div>
                 @enderror
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 5<span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 5<span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview5" style="width: 200px; height: 200px; display: none;"/>
@@ -256,7 +256,7 @@
                 
                 <!-- Featured -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Nổi bật </label>
+                  <label class="col-lg-2 col-form-label" >Featured </label>
                   <div class="col-lg-8">
                     <input type="checkbox" name="featured">
                   </div>
@@ -264,7 +264,7 @@
                 <!-- End -->
                 <div class="form-group row">
                   <div class="col-lg-10 ml-auto">
-                    <button type="submit" class="btn btn-primary">Thêm</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                   </div>
                 </div>
                 @csrf

@@ -52,43 +52,41 @@
             </li>
             <li class="mega-menu mega-menu-sm">
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-              <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Sản phẩm</span>
+              <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Products</span>
               </a>
               <ul aria-expanded="false">
-                <li><a href="{{ url('admin/list-product')}}">Danh sách sản phẩm</a></li>
-                <li><a href="{{ url('admin/create-product')}}">Thêm sản phẩm</a></li>
-              </ul>
-            </li>
-            <!-- <li class="nav-label">Apps</li> -->
-            <li>
-              <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-              <i class="icon-envelope menu-icon"></i> <span class="nav-text">Thương hiệu</span>
-              </a>
-              <ul aria-expanded="false">
-                <li><a href="{{ url('admin/list-brand')}}">Danh sách thương hiệu</a></li>
-                <li><a href="{{ url('admin/create-brand')}}">Thêm thương hiệu</a></li>
-                <!-- <li><a href="./email-compose.html"></a></li> -->
+                <li><a href="{{ url('admin/list-product')}}">List products</a></li>
+                <li><a href="{{ url('admin/create-product')}}">Add product</a></li>
               </ul>
             </li>
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-              <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Danh mục</span>
+              <i class="icon-envelope menu-icon"></i> <span class="nav-text">Brands</span>
               </a>
               <ul aria-expanded="false">
-                <li><a href="{{ url('admin/list-category')}}">Danh sách danh mục</a></li>
-                <li><a href="{{ url('admin/create-category')}}">Thêm danh mục</a></li>
+                <li><a href="{{ url('admin/list-brand')}}">List brands</a></li>
+                <li><a href="{{ url('admin/create-brand')}}">Add brand</a></li>
               </ul>
             </li>
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-              <i class="icon-graph menu-icon"></i> <span class="nav-text">Đơn hàng</span>
+              <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Categories</span>
               </a>
               <ul aria-expanded="false">
-                <li><a href="{{ url('/admin/list-orders')}}">Danh sách đơn hàng</a></li>
-                <li><a href="{{ url('/admin/list-orders')}}">Danh sách đơn hàng mới</a></li>
+                <li><a href="{{ url('admin/list-category')}}">List categories</a></li>
+                <li><a href="{{ url('admin/create-category')}}">Add category</a></li>
               </ul>
             </li>
-            <li class="nav-label">UI Components</li>
+            <li>
+              <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+              <i class="icon-graph menu-icon"></i> <span class="nav-text">Order</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a href="{{ url('/admin/list-orders')}}">List orders</a></li>
+                <!-- <li><a href="{{ url('/admin/list-orders')}}">Danh sách đơn hàng mới</a></li> -->
+              </ul>
+            </li>
+            <!-- <li class="nav-label">UI Components</li>
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
               <i class="icon-grid menu-icon"></i><span class="nav-text">UI Components</span>
@@ -164,7 +162,7 @@
                   </ul>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

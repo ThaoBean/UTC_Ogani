@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Thương hiệu</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Brands</a></li>
       </ol>
     </div>
   </div>
@@ -21,10 +21,10 @@
             <div class="form-validation">
               <form class="form-valide" action="{{URL::to('/admin/store-brand')}}" method="post">
                 <div class="form-group row">
-                  <label class="col-lg-4 col-form-label">Tên thương hiệu <span class="text-danger">*</span>
+                  <label class="col-lg-4 col-form-label">Brand <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-6">
-                    <input type="text" class="form-control" name="brand" value="{{old('brand')}}" placeholder="Nhập tên thương hiệu...">
+                    <input type="text" class="form-control" name="brand" value="{{old('brand')}}" placeholder="Enter brand ...">
                   </div>
                 </div>
                 @error('brand')
@@ -37,7 +37,7 @@
                 @enderror
                 <div class="form-group row">
                   <div class="col-lg-8 ml-auto">
-                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    <button type="submit" class="btn btn-primary">Add brand</button>
                   </div>
                 </div>
                 @csrf

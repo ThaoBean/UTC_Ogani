@@ -85,7 +85,7 @@
           <div class="row">
             <div class="col-lg-4 col-md-5">
               <div class="filter__sort">
-                <span>Lọc theo</span>
+                <span>Sort by</span>
                 <select>
                   <option value="0">Default</option>
                   <option value="0">Default</option>

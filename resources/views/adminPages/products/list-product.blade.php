@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Danh mục</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Products</a></li>
       </ol>
     </div>
   </div>
@@ -18,17 +18,17 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Danh sách danh mục</h4>
+            <h4 class="card-title">List products</h4>
             <div class="table-responsive">
               <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Ảnh</th>
-                    <th>Giá bán</th>
-                    <th>Giảm giá</th>
-                    <th>Số lượng</th>
+                    <th>Product</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                    <th>Quantity</th>
                     <th>Hot</th>
                     <th>Action</th>
                   </tr>
@@ -45,13 +45,13 @@
                       <th><input type="checkbox" name="featured" {{$product->featured == 1 ? 'checked' : ''}} ></th>
                       <td style="display: flex">
                         <button class="btn btn-success btn">
-                          <a href="{{URL::to('/admin/show-product/'.$product->id)}}" style="color: white">Chi tiết</a>
+                          <a href="{{URL::to('/admin/show-product/'.$product->id)}}" style="color: white">Detail</a>
                         </button>
                         <button class="btn btn-info btn">
-                          <a href="{{URL::to('/admin/edit-product/'.$product->id)}}" style="color: white">Chỉnh sửa</a>
+                          <a href="{{URL::to('/admin/edit-product/'.$product->id)}}" style="color: white">Edit</a>
                         </button>
                         <form method="POST" action="{{URL::to('/admin/delete-product/'.$product->id)}}">
-                          <button type="submit" class="btn btn-danger btn show_confirm">Xóa</button>
+                          <button type="submit" class="btn btn-danger btn show_confirm">Delete</button>
                           @csrf
                         </form>
                       </td>
@@ -61,11 +61,11 @@
                 <tfoot>
                   <tr>
                     <th>Id</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Ảnh</th>
-                    <th>Giá bán</th>
-                    <th>Giảm giá</th>
-                    <th>Số lượng</th>
+                    <th>Product</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                    <th>Quantity</th>
                     <th>Hot</th>
                     <th>Action</th>
                   </tr>
@@ -99,7 +99,7 @@
           var name = $(this).data("name");
           event.preventDefault();
           swal({
-              title: `Bạn chắc chắn muốn xóa bản ghi này?`,
+              title: `Do you want to delete this record?`,
               icon: "warning",
               buttons: true,
               dangerMode: true,
