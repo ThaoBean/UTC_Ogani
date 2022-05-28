@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Thương hiệu</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Categories</a></li>
       </ol>
     </div>
   </div>
@@ -21,10 +21,10 @@
             <div class="form-validation">
               <form class="form-valide" action="{{URL::to('/admin/update-brand/'.$brand->id)}}" method="post">
                 <div class="form-group row">
-                  <label class="col-lg-4 col-form-label">Tên thương hiệu <span class="text-danger">*</span>
+                  <label class="col-lg-4 col-form-label">Category <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-6">
-                    <input type="text" class="form-control" name="brand" value="{{$brand->brand}}" placeholder="Nhập tên thương hiệu...">
+                    <input type="text" class="form-control" name="brand" value="{{$brand->brand}}" placeholder="Enter category...">
                   </div>
                 </div>
                 @error('brand')
@@ -37,7 +37,7 @@
                 @enderror
                 <div class="form-group row">
                   <div class="col-lg-8 ml-auto">
-                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
                 @csrf

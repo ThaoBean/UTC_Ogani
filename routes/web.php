@@ -98,3 +98,6 @@ Route::post('/admin/delete-product/{id}', 'ProductController@destroy');
 Route::get('/admin/list-orders', 'OrderController@listOrdersAdmin');
 Route::get('/admin/order-detail/{id}', 'OrderController@viewListOrdersDetailAdmin');
 Route::post('/admin/update-status-order/{id}', 'OrderController@updateStatusOrder');
+
+//ADM Users
+Route::get('/admin/list-users', 'LoginController@getAllUsers');

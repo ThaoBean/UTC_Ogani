@@ -86,6 +86,19 @@
                 <!-- <li><a href="{{ url('/admin/list-orders')}}">Danh sách đơn hàng mới</a></li> -->
               </ul>
             </li>
+            <li>
+              <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+              <i class="icon-note menu-icon"></i><span class="nav-text">Users</span>
+              </a>
+              <ul aria-expanded="false">
+                <li>
+                  <a href="{{ url('/admin/list-users')}}" aria-expanded="false">
+                  <i class="icon-badge menu-icon"></i><span class="nav-text">Users</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <!-- <li class="nav-label">UI Components</li>
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
