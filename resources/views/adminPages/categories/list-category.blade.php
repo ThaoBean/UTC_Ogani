@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Danh mục</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Categories</a></li>
       </ol>
     </div>
   </div>
@@ -18,14 +18,14 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Danh sách danh mục</h4>
+            <h4 class="card-title">List categories</h4>
             <div class="table-responsive">
               <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Danh mục</th>
-                    <th>Ảnh</th>
+                    <th>Category</th>
+                    <th>Image</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -37,10 +37,10 @@
                       <td><img src="{{URL::to('storage/images/'.$category->image)}}" style="width:200px; height:200px;"/></td>
                       <td style="display: flex">
                         <button class="btn btn-info btn">
-                          <a href="{{URL::to('/admin/edit-category/'.$category->id)}}" style="color: white">Chỉnh sửa</a>
+                          <a href="{{URL::to('/admin/edit-category/'.$category->id)}}" style="color: white">Edit</a>
                         </button>
                         <form method="POST" action="{{URL::to('/admin/delete-category/'.$category->id)}}">
-                          <button type="submit" class="btn btn-danger btn show_confirm">Xóa</button>
+                          <button type="submit" class="btn btn-danger btn show_confirm">Delete</button>
                           @csrf
                         </form>
                       </td>
@@ -50,8 +50,8 @@
                 <tfoot>
                   <tr>
                     <th>Id</th>
-                    <th>Danh mục</th>
-                    <th>Ảnh</th>
+                    <th>Category</th>
+                    <th>Image</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>
@@ -84,7 +84,7 @@
           var name = $(this).data("name");
           event.preventDefault();
           swal({
-              title: `Bạn chắc chắn muốn xóa bản ghi này?`,
+              title: `If you delete this, it will be gone forever?`,
               // text: "If you delete this, it will be gone forever.",
               icon: "warning",
               buttons: true,

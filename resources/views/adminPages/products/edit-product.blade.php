@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Sản phẩm</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Products</a></li>
       </ol>
     </div>
   </div>
@@ -22,17 +22,17 @@
               <form class="form-valide" action="{{URL::to('/admin/update-product/'.$product->id)}}" method="post" enctype="multipart/form-data">
                 <!-- Name -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Tên sản phẩm <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Product <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
-                    <input type="text" class="form-control" value="{{$product->name}}" name="product" placeholder="Nhập tên sản phẩm">
+                    <input type="text" class="form-control" value="{{$product->name}}" name="product" placeholder="Enter name product">
                   </div>
                 </div>
                 </div>
                 <!-- End -->
                 <!-- Short-desc -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Giới thiệu sản phẩm</span>
+                  <label class="col-lg-2 col-form-label">Short description</span>
                   </label>
                   <div class="col-lg-8">
                     <textarea  rows="3" class="form-control" name="short_desc">
@@ -43,7 +43,7 @@
                 <!-- End -->
                 <!-- Description -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Chi tiết sản phẩm <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Description <span class="text-danger">*</span>
                   </label>
                   <!-- <div class="col-lg-8">
                     <input type="text" class="form-control" name="description" placeholder="Nhập thông tin chi tiết sản phẩm">
@@ -57,37 +57,37 @@
                 <!-- End -->
                 <!-- Price -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Giá sản phẩm <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" >Price <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='')" class="form-control" min="1" value="{{$product->price}}" name="price" placeholder="Nhập giá sản phẩm">
+                    <input type="number" oninput="validity.valid||(value='')" class="form-control" min="1" value="{{$product->price}}" name="price" placeholder="Enter price">
                   </div>
                 </div>
                 <!-- End -->
                 <!-- Discount -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Giảm giá </label>
+                  <label class="col-lg-2 col-form-label" >Discount </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='0')" class="form-control" min="0" max="100" value="{{$product->discount}}" name="discount" placeholder="Nhập % giá giảm">
+                    <input type="number" oninput="validity.valid||(value='0')" class="form-control" min="0" max="100" value="{{$product->discount}}" name="discount" placeholder="Enter percent discount">
                   </div>
                 </div>               
                 <!-- End -->
                 <!-- Quantity -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Số lượng <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" >Quantity <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
-                    <input type="number" oninput="validity.valid||(value='1')" min="0" value="{{$product->quantity}}" class="form-control" name="quantity" placeholder="Nhập số lượng sản phẩm">
+                    <input type="number" oninput="validity.valid||(value='1')" min="0" value="{{$product->quantity}}" class="form-control" name="quantity" placeholder="Enter quantity">
                   </div>
                 </div>
                 <!-- End -->
                 <!-- Choose brand --> 
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" for="val-skill">Thương hiệu <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" for="val-skill">Brand <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
                     <select class="form-control" id="val-skill" name="brand">
-                      <option>Chọn thương hiệu</option>
+                      <option>Choose brand</option>
                       @foreach($brands as $brand)
                         <option {{$brand->id == $product->brand_id ? 'selected' : ''}} value="{{$brand->id}}">{{$brand->brand}}</option>
                       @endforeach;
@@ -97,11 +97,11 @@
                 <!-- End -->
                 <!-- Choose Category -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" for="val-skill">Danh mục <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label" for="val-skill">Category <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-8">
                     <select class="form-control" id="val-skill" name="category">
-                      <option>Chọn danh mục</option>
+                      <option>Choose category</option>
                       @foreach($categories as $category)
                         <option {{$category->id == $product->category_id ? ' selected' : ''}} value="{{$category->id}}">{{$category->category}}</option>
                       @endforeach;
@@ -111,7 +111,7 @@
                 <!-- End -->
                 <!-- Primary image -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chính <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Primary Image <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview" src="{{URL::to('storage/images/'.$product->image)}}" style="width: 200px; height: 200px; "/>
@@ -125,7 +125,7 @@
                   $arrImg = explode(",", $images);
                 @endphp
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 1 <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 1 <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview1" src="{{URL::to('storage/images/'.$arrImg[0])}}" style="width: 200px; height: 200px; "/>
@@ -133,7 +133,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 2 <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 2 <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview2" src="{{URL::to('storage/images/'.$arrImg[1])}}" style="width: 200px; height: 200px; "/>
@@ -141,7 +141,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 3 <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 3 <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview3" src="{{URL::to('storage/images/'.$arrImg[2])}}" style="width: 200px; height: 200px; "/>
@@ -149,7 +149,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 4 <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 4 <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview4" src="{{URL::to('storage/images/'.$arrImg[3])}}" style="width: 200px; height: 200px; "/>
@@ -157,7 +157,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label">Ảnh chi tiết 5 <span class="text-danger">*</span>
+                  <label class="col-lg-2 col-form-label">Detail image 5 <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-3">
                     <img id="preview5" src="{{URL::to('storage/images/'.$arrImg[4])}}" style="width: 200px; height: 200px; "/>
@@ -167,7 +167,7 @@
                 <!-- End Detail Image -->                
                 <!-- Featured -->
                 <div class="form-group row">
-                  <label class="col-lg-2 col-form-label" >Nổi bật </label>
+                  <label class="col-lg-2 col-form-label" >Featured </label>
                   <div class="col-lg-8">
                   <input type="checkbox" name="featured" {{$product->featured == 1 ? 'checked' : ''}} >
                   </div>
@@ -175,7 +175,7 @@
                 <!-- End -->
                 <div class="form-group row">
                   <div class="col-lg-10 ml-auto">
-                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
                 @csrf

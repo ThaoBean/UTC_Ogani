@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Đơn hàng</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Orders</a></li>
       </ol>
     </div>
   </div>
@@ -18,16 +18,16 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Danh sách đơn hàng</h4>
+            <h4 class="card-title">List orders</h4>
             <div class="table-responsive">
               <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
-                    <th>Mã đơn</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                    <th>Ngày đặt</th>
-                    <th>Trạng thái</th>
+                    <th>Id order</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th>Time place</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -48,7 +48,7 @@
                     </td>
                     <td style="display: flex">                       
                         <button class="btn btn-success btn">
-                          <a href="{{URL::to('/admin/order-detail/'.$listOrder->id)}}" style="color: white">Xem chi tiết</a>
+                          <a href="{{URL::to('/admin/order-detail/'.$listOrder->id)}}" style="color: white">Detail</a>
                         </button>
                       </td>
                   </tr>
@@ -56,11 +56,11 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Mã đơn</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                    <th>Ngày đặt</th>
-                    <th>Trạng thái</th>
+                    <th>Id order</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th>Time place</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>

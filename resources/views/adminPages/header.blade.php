@@ -2,12 +2,12 @@
   Nav header start
   ***********************************-->
   <div class="nav-header">
-  <div class="brand-logo">
-    <a href="index.html">
+  <div style="background:white;" class="brand-logo">
+    <a href="{{URL::to('/admin')}}">
     <b class="logo-abbr"><img src="{{asset('assets_admin/images/logo.png')}}" alt=""> </b>
     <span class="logo-compact"><img src="{{asset('assets_admin/images/logo-compact.png')}}" alt=""></span>
     <span class="brand-title">
-    <img src="{{asset('assets_admin/images/logo-text.png')}}" alt="">
+    <img  src="{{asset('img/logo.png')}}" alt="">
     </span>
     </a>
   </div>

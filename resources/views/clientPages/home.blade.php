@@ -28,7 +28,7 @@
   </div>
   <!-- Banner End -->
   <!-- Latest Product Section Begin -->
-  <section class="latest-product spad">
+  <!-- <section class="latest-product spad">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6">
@@ -228,6 +228,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- Latest Product Section End -->
 @endsection
