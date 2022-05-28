@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <div class="breadcrumb__text">
-              <h2>Đặt hàng</h2>
+              <h2>Place order</h2>
             </div>
           </div>
         </div>
@@ -18,60 +18,60 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <h4>Thông tin đặt hàng</h4>
+                <h4>Information</h4>
                 <form action="{{URL::to('/place-order')}}" method="post">
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="checkout__input">
-                                <p>Họ tên người nhận<span>*</span></p>
+                                <p>Receiver<span>*</span></p>
                                 <input type="text" name="receiver" value="{{$receiver}}">
                                 @error('receiver')
                                   <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="checkout__input">
-                                <p>Số điện thoại<span>*</span></p>
+                                <p>Phone number<span>*</span></p>
                                 <input type="text" name="phone_receiver" value="{{old('phone_receiver')}}">
                                 @error('phone_receiver')
                                   <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="checkout__input">
-                                <p>Địa chỉ<span>*</span></p>
+                                <p>Address<span>*</span></p>
                                 <input type="text" name="address_receiver" value="{{old('address_receiver')}}">
                                 @error('address_receiver')
                                   <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>                            
                             <div class="checkout__input">
-                                <p>Ghi chú</p>
+                                <p>Note</p>
                                 <textarea rows="10" name="note" style="width:100%; border:1px solid #ebebeb; padding:16px; color:#b2b2b2"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="checkout__order">
-                                <h4>Đơn hàng</h4>
-                                <div class="checkout__order__products">Sản phẩm <span>Thành tiền</span></div>
+                                <h4>Orders</h4>
+                                <div class="checkout__order__products">Product <span>Price</span></div>
                                 <ul>
                                   @foreach($myCart as $mycart)
                                     <li >{{$mycart->name}}
                                       <span>
-                                      {{number_format(($mycart->price - $mycart->price*$mycart->discount*0.01)*$mycart->quantity_cart, 0)}}đ
+                                      {{number_format(($mycart->price - $mycart->price*$mycart->discount*0.01)*$mycart->quantity_cart, 0)}}đ x {{$mycart->quantity_cart}}
                                       </span>
                                     </li>
                                   @endforeach
                                 </ul>
-                                <div class="checkout__order__subtotal">Tạm tính <span>{{number_format($totalPrice, 0)}}đ</span></div>
+                                <div class="checkout__order__subtotal">Price product <span>{{number_format($totalPrice, 0)}}đ</span></div>
                                 @if ($totalPrice > 499000)
-                                  <div class="checkout__order__subtotal">Phí vận chuyển <span>0đ</span></div>
+                                  <div class="checkout__order__subtotal">Fee shipping<span>0đ</span></div>
                                 @else
-                                  <div class="checkout__order__subtotal">Phí vận chuyển <span>30,000đ</span></div>
+                                  <div class="checkout__order__subtotal">Fee shipping <span>30,000đ</span></div>
                                 @endif
-                                <div class="checkout__order__total">Tổng tiền <span>{{number_format($total, 0)}}đ</span></div>
+                                <div class="checkout__order__total">Total price <span>{{number_format($total, 0)}}đ</span></div>
                                 <p>Chọn hình thức thanh toán</p>
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
-                                        Thanh toán khi nhận hàng
+                                      Payment on delivery
                                         <input type="checkbox" id="payment" name="payment" checked>
                                         <span class="checkmark"></span>
                                     </label>
@@ -83,7 +83,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">Đặt hàng</button>
+                                <button type="submit" class="site-btn">Place Order</button>
                             </div>
                         </div>
                     </div>
