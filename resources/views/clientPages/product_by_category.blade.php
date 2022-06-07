@@ -117,10 +117,12 @@
           <div class="row">
             <div class="col-lg-4 col-md-5">
               <div class="filter__sort">
-                <span>Lọc theo</span>
-                <select>
-                  <option value="0">Default</option>
-                  <option value="0">Default</option>
+                <span>Sort by</span>
+                <select onchange="location = this.value;">
+                  <option value="?sortBy=default" {{ (request('sortBy') == 'default' ? 'selected=selected' : '') }}>Default</option>
+                  <option value="?sortBy=price_asc" {{ (request('sortBy') == 'newness' ? 'selected=selected' : '') }}>Newness</option>
+                  <option value="?sortBy=price_asc" {{ (request('sortBy') == 'price_asc' ? 'selected=selected' : '') }}>Price ascending</option>
+                  <option value="?sortBy=price_desc" {{ (request('sortBy') == 'price_desc' ? 'selected=selected' : '') }}>Price descending</option>
                 </select>
               </div>
             </div>
@@ -138,7 +140,6 @@
               <div class="product__item__pic set-bg" data-setbg="{{URL::to('storage/images/'.$productFilter->image)}}">
                 <ul class="product__item__pic__hover">
                   <li><a href="{{URL::to('/add-to-favorite/'.$productFilter->id)}}"><i class="fa fa-heart"></i></a></li>
-                  <!-- <li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
                   <li>
                     <form method="post" action="{{URL::to('/add-to-cart/'.$productFilter->id)}}">
                       <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
