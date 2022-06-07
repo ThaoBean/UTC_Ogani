@@ -18,12 +18,8 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <!-- <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div> -->
-                                <input type="text" placeholder="Enter product you want to find...">
+                            <form action="{{URL::to('/search-product')}}" method="get">
+                                <input type="text" placeholder="Enter product you want to find..." name="search">
                                 <button type="submit" class="site-btn">Search</button>
                             </form>
                         </div>
