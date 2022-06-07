@@ -67,6 +67,9 @@
             </li>
             <li><a style="color:red;" href="{{URL::to('/products-sale-off')}}">Sale off</a></li>
             <li><a href="{{URL::to('/contact-us')}}">Contact</a></li>
+            @if (Auth::check() && Auth::user()->uType == "ADM")
+              <li><a href="{{URL::to('/admin')}}">Admin</a></li>
+            @endif
           </ul>
         </nav>
       </div>
