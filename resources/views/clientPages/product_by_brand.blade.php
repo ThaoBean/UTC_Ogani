@@ -86,9 +86,11 @@
             <div class="col-lg-4 col-md-5">
               <div class="filter__sort">
                 <span>Sort by</span>
-                <select>
-                  <option value="0">Default</option>
-                  <option value="0">Default</option>
+                <select onchange="location = this.value;">
+                  <option value="?sortBy=default" {{ (request('sortBy') == 'default' ? 'selected=selected' : '') }}>Default</option>
+                  <option value="?sortBy=price_asc" {{ (request('sortBy') == 'newness' ? 'selected=selected' : '') }}>Newness</option>
+                  <option value="?sortBy=price_asc" {{ (request('sortBy') == 'price_asc' ? 'selected=selected' : '') }}>Price ascending</option>
+                  <option value="?sortBy=price_desc" {{ (request('sortBy') == 'price_desc' ? 'selected=selected' : '') }}>Price descending</option>
                 </select>
               </div>
             </div>
