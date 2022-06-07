@@ -21,6 +21,13 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function searchProduct(Request $request){
+        $products = Product::where('name', 'LIKE', '%'.$request->search. '%')->paginate(9);
+        return view('clientPages.search')->with([
+            'products' => $products,
+        ]);
+    }
+
     public function getProductById($id){
         $product = Product::find($id);
         $category = Category::find($product->category_id);

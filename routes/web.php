@@ -36,6 +36,9 @@ Route::get('/products-by-brand/{id}', 'ProductController@getListProductByBrand')
 //Product sale off
 Route::get('/products-sale-off', 'ProductController@listSaleOff');
 
+//search product
+Route::get('/search-product', 'ProductController@searchProduct');
+
 //Cart
 //Display cart
 Route::get('/my-cart', 'CartController@index')->middleware('checkAuth');
