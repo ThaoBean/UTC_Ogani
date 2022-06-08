@@ -88,7 +88,7 @@
                 <span>Sort by</span>
                 <select onchange="location = this.value;">
                   <option value="?sortBy=default" {{ (request('sortBy') == 'default' ? 'selected=selected' : '') }}>Default</option>
-                  <option value="?sortBy=price_asc" {{ (request('sortBy') == 'newness' ? 'selected=selected' : '') }}>Newness</option>
+                  <option value="?sortBy=newness" {{ (request('sortBy') == 'newness' ? 'selected=selected' : '') }}>Newness</option>
                   <option value="?sortBy=price_asc" {{ (request('sortBy') == 'price_asc' ? 'selected=selected' : '') }}>Price ascending</option>
                   <option value="?sortBy=price_desc" {{ (request('sortBy') == 'price_desc' ? 'selected=selected' : '') }}>Price descending</option>
                 </select>

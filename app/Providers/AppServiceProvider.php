@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\Cart;
 use App\UserFavorite;
+use DB;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
@@ -38,8 +39,17 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', $categories);
         });
         view()->composer('clientPages.products.featuredProduct', function($view){
+            $products=[];
+            if(Auth::check()){
+                $user = Auth::user();
+                $products = DB::table('products')->where('featured', true)->inRandomOrder()->limit(8)
+                ->leftJoin(DB::raw("(SELECT user_id, product_id FROM user_favorites where user_favorites.user_id = $user->id) as tb"), 'tb.product_id', '=', 'products.id')
+                ->get();
+            }
+            else{
+                $products = Product::where('featured', true)->inRandomOrder()->limit(8)->get();
+            }
             $categories = Category::all()->take(6);
-            $products = Product::where('featured', true)->inRandomOrder()->limit(8)->get();
             $view->with(['categories' => $categories, 'products' => $products]);
         });
         view()->composer('clientPages.brand_', function($view){
