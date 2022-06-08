@@ -22,14 +22,34 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function searchProduct(Request $request){
-        $products = Product::where('name', 'LIKE', '%'.$request->search. '%')->paginate(9);
+        $products = [];
+        if(Auth::check()){
+            $user = Auth::user();
+            $products = Product::where('name', 'LIKE', '%'.$request->search. '%')
+            ->leftJoin(DB::raw("(SELECT user_id, product_id FROM user_favorites where user_favorites.user_id = $user->id) as tb"), 'tb.product_id', '=', 'products.id')
+            ->paginate(9);
+        }
+        else{
+            $products = Product::where('name', 'LIKE', '%'.$request->search. '%')->paginate(9);
+        }
         return view('clientPages.search')->with([
             'products' => $products,
         ]);
     }
 
     public function getProductById($id){
-        $product = Product::find($id);
+        $product = "";
+        $category = "";
+        $brand = "";
+        if(Auth::check()){
+            $user = Auth::user();
+            $product = DB::table('products')->where('id', $id)
+            ->leftJoin(DB::raw("(SELECT user_id, product_id FROM user_favorites where user_favorites.user_id = $user->id) as tb"), 'tb.product_id', '=', 'products.id')->get();
+            $product = $product[0];
+        }
+        else{
+            $product = Product::find($id);
+        }
         $category = Category::find($product->category_id);
         $brand = Brand::find($product->brand_id);
         $productRelated = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
@@ -447,28 +467,19 @@ class ProductController extends Controller
     }
 
     public function listSaleOff(){
-        // if(Auth::check()){
-        //     $user = Auth::user();
-        //     $products = Product::where('discount', '>', 0)
-        //     ->leftJoin('user_favorites', 'user_favorites.product_id', '=', 'products.id')
-        //     ->select('products.*', 'user_favorites.user_id as user_id')
-        //     ->get();
-
-        //     return view('clientPages.sale_off')->with([
-        //         'products' => $products,
-        //         'user_id' => $user->id,
-        //     ]);
-        // }else{
-        //     $products = Product::where('discount', '>', 0)->orderByDesc('updated_at')
-        //     ->paginate(8);
-        //     return view('clientPages.sale_off')->with([
-        //         'products' => $products,
-        //     ]);
-        // }
-        $products = Product::where('discount', '>', 0)->orderByDesc('updated_at')
+        if(Auth::check()){
+            $user = Auth::user();
+            $products = DB::table('products')->where('discount', '>', 0)
+            ->leftJoin(DB::raw("(SELECT user_id, product_id FROM user_favorites where user_favorites.user_id = $user->id) as tb"), 'tb.product_id', '=', 'products.id')->paginate(8);
+            return view('clientPages.sale_off')->with([
+                'products' => $products,
+            ]);
+        }else{
+            $products = Product::where('discount', '>', 0)->orderByDesc('updated_at')
             ->paginate(8);
-        return view('clientPages.sale_off')->with([
-            'products' => $products,
-        ]);
+            return view('clientPages.sale_off')->with([
+                'products' => $products,
+            ]);
+        }
     }
 }

@@ -69,7 +69,7 @@
           @else
           <a href="#" class="primary-btn">Out of stock</a>
           @endif
-          <a href="{{URL::to('/add-to-favorite/'.$product->id)}}" class="heart-icon"><span class="icon_heart_alt"></span></a>
+          <a href="{{URL::to('/add-to-favorite/'.$product->id)}}" class="heart-icon"><span class="icon_heart_alt" @if($product->user_id != null) style="color:red;" @endif></span></a>
           @error('quantity_cart')
             <div class="text-danger" >{{ $message }}</div>
         @enderror
