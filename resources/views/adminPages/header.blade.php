@@ -27,7 +27,7 @@
     </div>
     <div class="header-right">
       <ul class="clearfix">
-        <li class="icons dropdown">
+        <!-- <li class="icons dropdown">
           <a href="javascript:void(0)" data-toggle="dropdown">
           <i class="mdi mdi-email-outline"></i>
           <span class="badge badge-pill gradient-1">3</span>
@@ -138,30 +138,23 @@
               </ul>
             </div>
           </div>
-        </li>
+        </li> -->
+        @if(Auth::check())
         <li class="icons dropdown d-none d-md-flex">
           <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-          <span>English</span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+          <span>{{Auth::user()->name}}</span>
           </a>
-          <div class="drop-down dropdown-language animated fadeIn  dropdown-menu">
-            <div class="dropdown-content-body">
-              <ul>
-                <li><a href="javascript:void()">English</a></li>
-                <li><a href="javascript:void()">Dutch</a></li>
-              </ul>
-            </div>
-          </div>
         </li>
         <li class="icons dropdown">
           <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
             <span class="activity active"></span>
-            <img src="{{asset('assets_admin/images/user/1.png')}}" height="40" width="40" alt="">
+            <img src="{{URL::to('storage/images/'.Auth::user()->avatar)}}" height="40" width="40" alt="">
           </div>
           <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
             <div class="dropdown-content-body">
               <ul>
                 <li>
-                  <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                  <a href="{{URL::to('/my-profile')}}"><i class="icon-user"></i> <span>Profile</span></a>
                 </li>
                 <li>
                   <a href="javascript:void()">
@@ -170,14 +163,12 @@
                   </a>
                 </li>
                 <hr class="my-2">
-                <li>
-                  <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                </li>
-                <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                <li><a href="{{URL::to('/logout')}}"><i class="icon-key"></i> <span>Logout</span></a></li>
               </ul>
             </div>
           </div>
         </li>
+        @endif
       </ul>
     </div>
   </div>
