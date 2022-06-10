@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\Cart;
 use App\UserFavorite;
+use App\OrderDetail;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -74,6 +75,22 @@ class AppServiceProvider extends ServiceProvider
                 'totalOrder' => $totalOrder,
                 'totalPrice' => $totalPrice,
                 'totalFavorite' => $totalFavorite,
+            ]);
+        });
+        view()->composer('clientPages.home', function($view){
+            $productsLatest = Product::orderByDesc('updated_at')->limit(6)->get();
+            $productsSale = Product::orderByDesc('discount')->limit(6)->get();
+            $topProducts = DB::table('order_details')
+                ->join('products', 'products.id', 'product_id')
+                ->select(DB::raw('products.*, count(products.id) as total'))
+                ->groupBy('products.id')
+                ->orderByDesc('total')
+                ->limit(6)
+                ->get();
+            $view->with([
+                'productsLatest' => $productsLatest,
+                'productsSale' => $productsSale,
+                'topProducts' => $topProducts,
             ]);
         });
     }

@@ -28,206 +28,136 @@
   </div>
   <!-- Banner End -->
   <!-- Latest Product Section Begin -->
-  <!-- <section class="latest-product spad">
+  <section class="latest-product spad">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="latest-product__text">
             <h4>Latest Products</h4>
             <div class="latest-product__slider owl-carousel">
-              <div class="latest-prdouct__slider__item">
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://cf.shopee.vn/file/9619b01afaad91a9f78579e221410a77" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRDpQd9UOWRsxPg-Bb6MyuifS0XeBHATzE7A&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTDewPOVPWYXUrwDmsybKKqA9MGhNBchuM4g&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-              </div>
-              <div class="latest-prdouct__slider__item">
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://vifahealthcare.com/wp-content/uploads/2020/10/review-sua-rua-mat-cetaphil-gentle-skin-cleanser-2.jpg" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://cf.shopee.vn/file/1142413d1bcc67d82fad9005e9b20997" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://cdn.chanhtuoi.com/uploads/2021/01/w400/sua-rua-mat-murad-essential-c-cleanser-2.jpg.webp" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-              </div>
+                <div class="latest-prdouct__slider__item">
+                  @for($i=0; $i<=2; $i++)
+                  <a href="{{URL::to('/detail-product/'.$productsLatest[$i]->id)}}" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                      <img src="{{URL::to('storage/images/'.$productsLatest[$i]->image)}}" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                      <h6>{{$productsLatest[$i]->name}}</h6>
+                      <span>{{number_format($productsLatest[$i]->price - $productsLatest[$i]->price*$productsLatest[$i]->discount*0.01, 0)}}đ</span>
+                      @if($productsLatest[$i]->discount > 0)
+                        <div style="color: red; text-decoration: line-through;";>{{number_format(($productsLatest[$i]->price), 0)}}đ</div>
+                      @endif 
+                    </div>
+                  </a>
+                  @endfor                                     
+                </div>
+                <div class="latest-prdouct__slider__item">
+                  @for($i=3; $i<=count($productsLatest)-1; $i++)
+                  <a href="{{URL::to('/detail-product/'.$productsLatest[$i]->id)}}" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                      <img src="{{URL::to('storage/images/'.$productsLatest[$i]->image)}}" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                      <h6>{{$productsLatest[$i]->name}}</h6>
+                      <span>{{number_format($productsLatest[$i]->price - $productsLatest[$i]->price*$productsLatest[$i]->discount*0.01, 0)}}đ</span>
+                      @if($productsLatest[$i]->discount > 0)
+                        <div style="color: red; text-decoration: line-through;";>{{number_format(($productsLatest[$i]->price), 0)}}đ</div>
+                      @endif 
+                    </div>
+                  </a>
+                  @endfor 
+                </div>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="latest-product__text">
-            <h4>Top Rated Products</h4>
+            <h4>Top Sale Off</h4>
             <div class="latest-product__slider owl-carousel">
-              <div class="latest-prdouct__slider__item">
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJD4r3LWtm2HY-i-Jtd-QGAVqFrI1b9TpLSQ&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzixoyAD19_-zMimEdMW_XC3SMSTdAJ2lReqG_eJmfzZ8SjqdBXUWd7gkY5kebbzxcXsE&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://cdn.chanhtuoi.com/uploads/2021/01/w400/sua-rua-mat-murad-essential-c-cleanser-2.jpg.webp" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-              </div>
-              <div class="latest-prdouct__slider__item">
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRp3Hh8lU_a25QrL24dk2WzNaUVXSZPZDpZPwl1nrkqHt7MZoeHk830CseIWJFCkqUFo&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://thietkebaobi.jai.vn/wp-content/uploads/2020/04/Cleo-Luxe-00.jpg" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://cocnguyetsansibell.vn/wp-content/uploads/2021/08/sua-rua-mat-Vichy-Normaderm-Anti-Imperfection.jpg" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-              </div>
+                <div class="latest-prdouct__slider__item">
+                  @for($i=0; $i<=2; $i++)
+                  <a href="{{URL::to('/detail-product/'.$productsSale[$i]->id)}}" class="latest-product__item">
+                    <div class="latest-product__item__pic" style="position:relative">
+                      <img src="{{URL::to('storage/images/'.$productsSale[$i]->image)}}" alt="">
+                      <div style="position:absolute; top: 0px; right: 0px; color: white; display: inline; padding: 8px; border-radius: 50%; background-color:red;" 
+                        class="product__discount__percent">
+                          {{number_format($productsSale[$i]->discount, 0)}}%
+                      </div>
+                    </div>
+                    <div class="latest-product__item__text">
+                      <h6>{{$productsSale[$i]->name}}</h6>
+                      <span>{{number_format($productsSale[$i]->price - $productsSale[$i]->price*$productsSale[$i]->discount*0.01, 0)}}đ</span>
+                      @if($productsSale[$i]->discount > 0)
+                        <div style="color: red; text-decoration: line-through;";>{{number_format(($productsSale[$i]->price), 0)}}đ</div>
+                      @endif 
+                    </div>
+                  </a>
+                  @endfor                                     
+                </div>
+                <div class="latest-prdouct__slider__item">
+                  @for($i=3; $i<=count($productsSale)-1; $i++)
+                  <a href="{{URL::to('/detail-product/'.$productsSale[$i]->id)}}" class="latest-product__item">
+                    <div class="latest-product__item__pic" style="position:relative">
+                      <img src="{{URL::to('storage/images/'.$productsSale[$i]->image)}}" alt="">
+                      <div style="position:absolute; top: 0px; right: 0px; color: white; display: inline; padding: 8px; border-radius: 50%; background-color:red;" 
+                        class="product__discount__percent">
+                          {{number_format($productsSale[$i]->discount, 0)}}%
+                      </div>
+                    </div>
+                    <div class="latest-product__item__text">
+                      <h6>{{$productsSale[$i]->name}}</h6>
+                      <span>{{number_format($productsSale[$i]->price - $productsSale[$i]->price*$productsSale[$i]->discount*0.01, 0)}}đ</span>
+                      @if($productsSale[$i]->discount > 0)
+                        <div style="color: red; text-decoration: line-through;";>{{number_format(($productsSale[$i]->price), 0)}}đ</div>
+                      @endif 
+                    </div>
+                  </a>
+                  @endfor 
+                </div>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="latest-product__text">
-            <h4>Review Products</h4>
+            <h4>Top Products</h4>
             <div class="latest-product__slider owl-carousel">
-              <div class="latest-prdouct__slider__item">
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRp3Hh8lU_a25QrL24dk2WzNaUVXSZPZDpZPwl1nrkqHt7MZoeHk830CseIWJFCkqUFo&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRp3Hh8lU_a25QrL24dk2WzNaUVXSZPZDpZPwl1nrkqHt7MZoeHk830CseIWJFCkqUFo&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRp3Hh8lU_a25QrL24dk2WzNaUVXSZPZDpZPwl1nrkqHt7MZoeHk830CseIWJFCkqUFo&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-              </div>
-              <div class="latest-prdouct__slider__item">
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRp3Hh8lU_a25QrL24dk2WzNaUVXSZPZDpZPwl1nrkqHt7MZoeHk830CseIWJFCkqUFo&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRp3Hh8lU_a25QrL24dk2WzNaUVXSZPZDpZPwl1nrkqHt7MZoeHk830CseIWJFCkqUFo&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-                <a href="#" class="latest-product__item">
-                  <div class="latest-product__item__pic">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRp3Hh8lU_a25QrL24dk2WzNaUVXSZPZDpZPwl1nrkqHt7MZoeHk830CseIWJFCkqUFo&usqp=CAU" alt="">
-                  </div>
-                  <div class="latest-product__item__text">
-                    <h6>Crab Pool Security</h6>
-                    <span>$30.00</span>
-                  </div>
-                </a>
-              </div>
+                <div class="latest-prdouct__slider__item">
+                  @for($i=0; $i<=2; $i++)
+                  <a href="{{URL::to('/detail-product/'.$topProducts[$i]->id)}}" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                      <img src="{{URL::to('storage/images/'.$topProducts[$i]->image)}}" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                      <h6>{{$topProducts[$i]->name}}</h6>
+                      <span>{{number_format($topProducts[$i]->price - $topProducts[$i]->price*$topProducts[$i]->discount*0.01, 0)}}đ</span>
+                      @if($topProducts[$i]->discount > 0)
+                        <div style="color: red; text-decoration: line-through;";>{{number_format(($topProducts[$i]->price), 0)}}đ</div>
+                      @endif 
+                    </div>
+                  </a>
+                  @endfor                                     
+                </div>
+                <div class="latest-prdouct__slider__item">
+                  @for($i=3; $i<=count($topProducts)-1; $i++)
+                  <a href="{{URL::to('/detail-product/'.$topProducts[$i]->id)}}" class="latest-product__item">
+                    <div class="latest-product__item__pic">
+                      <img src="{{URL::to('storage/images/'.$topProducts[$i]->image)}}" alt="">
+                    </div>
+                    <div class="latest-product__item__text">
+                      <h6>{{$topProducts[$i]->name}}</h6>
+                      <span>{{number_format($topProducts[$i]->price - $topProducts[$i]->price*$topProducts[$i]->discount*0.01, 0)}}đ</span>
+                      @if($topProducts[$i]->discount > 0)
+                        <div style="color: red; text-decoration: line-through;";>{{number_format(($topProducts[$i]->price), 0)}}đ</div>
+                      @endif 
+                    </div>
+                  </a>
+                  @endfor 
+                </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
   <!-- Latest Product Section End -->
 @endsection
