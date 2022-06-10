@@ -131,7 +131,7 @@
           @endforeach  
         </div>
         <div class="row">
-          <div class="col-md-12 d-flex justify-content-center pt-1">
+          <div class="col-md-12 d-flex justify-content-center pt-1 custom_pagination">
             {{$productsFilter->links()}}
           </div>
         </div>
