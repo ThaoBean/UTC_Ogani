@@ -8,7 +8,7 @@
     <div class="col p-md-0">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="javascript:void(0)">Thương hiệu</a></li>
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Brands</a></li>
       </ol>
     </div>
   </div>
@@ -18,15 +18,15 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Danh sách thương hiệu</h4>
+            <h4 class="card-title">List Brands</h4>
             <div class="table-responsive">
               <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Thương hiệu</th>
-                    <th>Ngày tạo</th>
-                    <th>Ngày cập nhật</th>
+                    <th>Brand</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -50,9 +50,9 @@
                 <tfoot>
                   <tr>
                     <th>Id</th>
-                    <th>Thương hiệu</th>
-                    <th>Ngày tạo</th>
-                    <th>Ngày cập nhật</th>
+                    <th>Brand</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
                     <th>Action</th>
                   </tr>
                 </tfoot>
