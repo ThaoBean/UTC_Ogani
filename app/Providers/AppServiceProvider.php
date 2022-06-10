@@ -6,7 +6,9 @@ use App\Category;
 use App\Product;
 use App\Cart;
 use App\UserFavorite;
-use App\OrderDetail;
+use App\User;
+use App\Order;
+use App\ReviewProduct;
 use DB;
 
 use Illuminate\Support\Facades\Auth;
@@ -91,6 +93,22 @@ class AppServiceProvider extends ServiceProvider
                 'productsLatest' => $productsLatest,
                 'productsSale' => $productsSale,
                 'topProducts' => $topProducts,
+            ]);
+        });
+        view()->composer('adminPages.dashboard', function($view){
+            $listProductBought = DB::table('order_details')
+                ->join('orders', 'order_details.order_id', 'orders.id')
+                ->where('orders.status', 'DELIVERED')
+                ->select('order_details.*')
+                ->get();
+            $totalProfit = Order::where('status', 'DELIVERED')->sum('total_price');
+            $totalUser = count(User::all());
+            $customerSatisfaction = ReviewProduct::sum('quantity_star')/(count(ReviewProduct::all()) * 5);
+            $view->with([
+                'totalProfit' => $totalProfit,
+                'totalUser' => $totalUser,
+                'listProductBought' => $listProductBought,
+                'customerSatisfaction' => $customerSatisfaction,
             ]);
         });
     }

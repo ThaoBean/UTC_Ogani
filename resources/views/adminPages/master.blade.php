@@ -98,7 +98,11 @@
                 </li>
               </ul>
             </li>
-
+            <li>
+              <a href="{{URL::to('/')}}" aria-expanded="false">
+                <i class="icon-badge menu-icon"></i><span class="nav-text">Back to website</span>
+              </a>
+            </li>
             <!-- <li class="nav-label">UI Components</li>
             <li>
               <a class="has-arrow" href="javascript:void()" aria-expanded="false">
