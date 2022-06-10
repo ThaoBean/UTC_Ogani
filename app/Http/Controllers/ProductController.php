@@ -470,7 +470,8 @@ class ProductController extends Controller
         if(Auth::check()){
             $user = Auth::user();
             $products = DB::table('products')->where('discount', '>', 0)
-            ->leftJoin(DB::raw("(SELECT user_id, product_id FROM user_favorites where user_favorites.user_id = $user->id) as tb"), 'tb.product_id', '=', 'products.id')->paginate(8);
+            ->leftJoin(DB::raw("(SELECT user_id, product_id FROM user_favorites where user_favorites.user_id = $user->id) as tb"), 'tb.product_id', '=', 'products.id')
+            ->paginate(16);
             return view('clientPages.sale_off')->with([
                 'products' => $products,
             ]);

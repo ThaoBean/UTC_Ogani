@@ -31,7 +31,7 @@
       <div class="col-lg-3 col-md-5">
         <div class="sidebar">
           <div class="sidebar__item">
-            <h4>Danh mục</h4>
+            <h4>Categories</h4>
             <ul>
               @foreach($categories as $category)
               <li><a href="{{URL::to('/products-by-category/'.$category->id)}}">{{$category->category}}</a></li>
