@@ -102,6 +102,7 @@ class OrderController extends Controller
                 $product->save();
             }
         }
+        $orderInfo->status = $request->status;
         $orderInfo->save();
         return redirect('/admin/list-orders');
     }

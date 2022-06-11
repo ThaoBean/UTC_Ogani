@@ -93,7 +93,7 @@
           var name = $(this).data("name");
           event.preventDefault();
           swal({
-              title: `Bạn chắc chắn muốn xóa bản ghi này?`,
+              title: `If you delete this, it will be gone forever?.`,
               // text: "If you delete this, it will be gone forever.",
               icon: "warning",
               buttons: true,
