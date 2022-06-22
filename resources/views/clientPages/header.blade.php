@@ -13,19 +13,19 @@
         <div class="col-lg-6 col-md-6">
           <div class="header__top__right">
             <div class="header__top__right__social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-              <a href="#"><i class="fa fa-pinterest-p"></i></a>
+              <a href="https://www.facebook.com/thaobean17012000/" target="_blank"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/ThaoDo02409747" target="_blank"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/thaodo1701/" target="_blank"><i class="fa fa-linkedin"></i></a>
+              <a href="https://www.pinterest.com/thaobean1701/" target="_blank"><i class="fa fa-pinterest-p"></i></a>
             </div>
             <div class="header__top__right__language">
               <img src="{{asset('img/language.png')}}" alt="">
               <div>English</div>
-              <span class="arrow_carrot-down"></span>
+              <!-- <span class="arrow_carrot-down"></span>
               <ul>
                 <li><a href="#">Vietnamese</a></li>
                 <li><a href="#">English</a></li>
-              </ul>
+              </ul> -->
             </div>
             @if (Auth::check())
                 <div class="header__top__right__auth">

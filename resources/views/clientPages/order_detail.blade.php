@@ -39,7 +39,7 @@
                       <td>
                         <img src="{{URL::to('storage/images/'.$myOrder->image)}}" style="width:200px; height:200px;"/>
                       </td>
-                      <td>{{$myOrder->product}}</td>
+                      <td><a style="color: #212529;" href="{{URL::to('/detail-product/'.$myOrder->product_id)}}">{{$myOrder->product}}</a></td>
                       <td >
                         {{$myOrder->unit_quantity}}
                       </td>
