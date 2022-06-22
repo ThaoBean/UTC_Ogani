@@ -1,6 +1,33 @@
 @extends('clientPages.master')
 @section('content')
 @include("clientPages.brand_")
+
+@section('cssCustomInput')
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}" type="text/css">
+@endsection
+
+@if($success = Session::get('error'))
+<div class="fixed-bottom">
+  <div class="col-lg-3 col-md-12">
+    <div class="alert alert-warning alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Error! </strong> {{$error}}
+    </div>
+  </div>
+</div>
+@endif
+
+@if($success = Session::get('success'))
+<div class="fixed-bottom">
+  <div class="col-lg-3 col-md-12">
+    <div class="alert alert-success alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Success! </strong> {{$success}}
+    </div>
+  </div>
+</div>
+@endif
+
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="https://png.pngtree.com/thumb_back/fh260/back_our/20190619/ourmid/pngtree-fresh-and-elegant-background-cosmetics-banner-material-image_131723.jpg">
   <div class="container">
@@ -17,6 +44,7 @@
 <!-- Shoping Cart Section Begin -->
   <section class="shoping-cart spad">
       <div class="container">
+        <form method="post" action="{{URL::to('/update-cart')}}">
           <div class="row">
               <div class="col-lg-12">
                   <div class="shoping__cart__table">
@@ -43,12 +71,12 @@
                                     {{number_format($mycart->price, 0)}}đ
                                   </td>
                                   <td class="shoping__cart__price">
-                                    {{number_format($mycart->price*$mycart->discount*0.01, 0)}}đ
+                                    {{number_format($mycart->price*$mycart->discount*0.01*$mycart->quantity_cart, 0)}}đ
                                   </td>
                                   <td class="shoping__cart__quantity">
                                       <div class="quantity">
                                           <div class="pro-qty">
-                                              <input type="text" value="{{$mycart->quantity_cart}}">
+                                              <input type="number" oninput="validity.valid||(value='{{$mycart->quantity_cart}}')" min="1" max="{{$mycart->quantity}}" value="{{$mycart->quantity_cart}}" name="idCart[{{$mycart->id}}]">
                                           </div>
                                       </div>
                                   </td>
@@ -62,7 +90,6 @@
                                         </button>
                                         @csrf
                                     </form>
-                                      
                                   </td>
                               </tr>
                             @endforeach
@@ -81,22 +108,14 @@
                   <div class="shoping__cart__btns">
                       <a href="{{URL::to('/continue-shopping')}}" class="primary-btn cart-btn">Continue shopping</a>
                       @if(count($myCart) > 0)
-                      <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                          Update cart</a>
+                      <button style="border:none;" class="primary-btn cart-btn cart-btn-right">
+                        <span class="icon_loading" type="submit"></span>
+                        Update cart
+                      </button>
                       @endif
                   </div>
               </div>
-              <div class="col-lg-6">
-                  <!-- <div class="shoping__continue">
-                      <div class="shoping__discount">
-                          <h5>Mã giảm giá</h5>
-                          <form action="#">
-                              <input type="text" placeholder="Enter your coupon code">
-                              <button type="submit" class="site-btn">APPLY COUPON</button>
-                          </form>
-                      </div>
-                  </div> -->
-              </div>
+              <div class="col-lg-6"></div>
               @if(count($myCart) > 0)
               <div class="col-lg-6">
                   <div class="shoping__checkout">
@@ -115,6 +134,7 @@
               </div>
               @endif
           </div>
+        </form> 
       </div>
   </section>
 <!-- Shoping Cart Section End -->
@@ -128,7 +148,7 @@
           var name = $(this).data("name");
           event.preventDefault();
           swal({
-              title: `Bạn chắc chắn muốn xóa sản phẩm này?`,
+              title: `Do you want to delete this product?`,
               icon: "warning",
               buttons: true,
               dangerMode: true,
@@ -139,5 +159,13 @@
             }
           });
       });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      setTimeout(function() {
+          $(".alert").alert('close');
+      }, 5000);
+    });
   </script>
 @endsection

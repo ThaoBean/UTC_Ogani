@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
+use DB;
 
 class CartController extends Controller
 {
@@ -14,6 +15,27 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function updateCart(Request $request){
+        if(count($request['idCart']) > 0){
+            foreach($request['idCart'] as $key => $value){
+                $infoCart = Cart::find($key);
+                $inventory = Product::find($infoCart->product_id);
+                if($inventory->quantity < $value || $value <=0){
+                    return back()->with(
+                        ['error' => 'The number of products '. $inventory->name .' is invalid']
+                    );
+                }
+                else{
+                    $infoCart->quantity_cart = $value;
+                    $infoCart->save();
+                }
+            }
+            return redirect('/my-cart')->with(
+                ['success' => 'Update cart successfully']
+            );
+        }
+    }
+
     public function index()
     {
         $user = Auth::user();
@@ -31,6 +53,7 @@ class CartController extends Controller
             'products.price as price',
             'products.image as image',
             'products.name as name',
+            'products.quantity as quantity',
         )->get();  
         $totalPrice = 0;     
         foreach ($myCart as $cart){

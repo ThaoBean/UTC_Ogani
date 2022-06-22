@@ -42,6 +42,7 @@ Route::get('/search-product', 'ProductController@searchProduct');
 //Cart
 //Display cart
 Route::get('/my-cart', 'CartController@index')->middleware('checkAuth');
+Route::post('/update-cart', 'CartController@updateCart')->middleware('checkAuth');
 //Add to cart
 Route::post('/add-to-cart/{id}', 'CartController@store')->middleware('checkAuth');
 Route::get('/continue-shopping', 'CartController@continueShopping')->middleware('checkAuth');
