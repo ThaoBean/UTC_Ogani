@@ -22,6 +22,7 @@
     @yield('cssCustomInput')
     @yield('cssListHistoryOrder')
     @yield('cssReviewProduct')
+    @yield('cssInputCart')
   </head>
   <body>
     <!-- Page Preloder -->
