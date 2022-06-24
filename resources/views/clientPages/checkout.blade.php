@@ -31,14 +31,14 @@
                             </div>
                             <div class="checkout__input">
                                 <p>Phone number<span>*</span></p>
-                                <input type="text" name="phone_receiver" value="{{old('phone_receiver')}}">
+                                <input type="text" name="phone_receiver" value="{{$phone_number}}">
                                 @error('phone_receiver')
                                   <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
-                                <input type="text" name="address_receiver" value="{{old('address_receiver')}}">
+                                <input type="text" name="address_receiver" value="{{$address}}">
                                 @error('address_receiver')
                                   <span class="text-danger">{{ $message }}</span>
                                 @enderror

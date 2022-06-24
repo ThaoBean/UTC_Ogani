@@ -100,7 +100,9 @@ class CartController extends Controller
             'myCart' => $myCart,
             'totalPrice'=>$totalPrice,
             'total' => $total, 
-            'receiver' => $user->name
+            'receiver' => $user->name,
+            'phone_number' => $user->phone_number,
+            'address' => $user->address,
         ]);
     }
 
