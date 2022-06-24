@@ -27,7 +27,7 @@
               <ul class="product__item__pic__hover">
                 <li><a href="{{URL::to('/add-to-favorite/'.$item->id)}}"><i class="fa fa-heart" @if($item->user_id != null) style="color:red;" @endif></i></a></li>
                 <li>
-                <form method="post" action="{{URL::to('/add-to-favorite/'.$item->id)}}">
+                <form method="post" action="{{URL::to('/add-to-cart/'.$item->id)}}">
                   <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
                   @csrf
                 </form>
@@ -59,7 +59,7 @@
             <ul class="product__item__pic__hover">
               <li><a href="{{URL::to('/add-to-favorite/'.$item->id)}}"><i class="fa fa-heart" @if($item->liked) style="color:red;" @endif></i></a></li>
               <li>
-              <form method="post" action="{{URL::to('/add-to-favorite/'.$item->id)}}">
+              <form method="post" action="{{URL::to('/add-to-cart/'.$item->id)}}">
                 <button style="border:none; background: transparent;" type="submit"><a><i class="fa fa-shopping-cart"></i></a></button>
                 @csrf
               </form>

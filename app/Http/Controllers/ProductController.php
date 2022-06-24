@@ -477,7 +477,7 @@ class ProductController extends Controller
             ]);
         }else{
             $products = Product::where('discount', '>', 0)->orderByDesc('updated_at')
-            ->paginate(8);
+            ->paginate(16);
             return view('clientPages.sale_off')->with([
                 'products' => $products,
             ]);
