@@ -40,11 +40,11 @@
         <div class="product__details__text">
           <h3>{{$product->name}}</h3>
           <div class="product__details__rating">
+            <!-- <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-half-o"></i> -->
             <span>({{count($listReviewProduct)}} reviews)</span>
           </div>
           @if($product->discount > 0)
@@ -77,7 +77,7 @@
             <li><b>Brand</b> <span>{{$brand->brand}}</span></li>
             <li><b>Category</b> <span>{{$category->category}}</span></li>
             <li><b>Status</b> <span>@if($product->quantity > 0) Available @else Out of stock @endif</span></li>
-            <li>
+            <!-- <li>
               <b>Share on</b>
               <div class="share">
                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -85,7 +85,7 @@
                 <a href="#"><i class="fa fa-instagram"></i></a>
                 <a href="#"><i class="fa fa-pinterest"></i></a>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

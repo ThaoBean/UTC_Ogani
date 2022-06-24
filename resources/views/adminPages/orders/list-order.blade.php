@@ -44,7 +44,17 @@
                       @endif
                     </td>
                     <td>{{$listOrder->created_at}}</td>
-                    <td><span class="badge badge-primary px-2">{{$listOrder->status}}</span></td>
+                    <td>
+                      @if($listOrder->status === "CANCELED")
+                        <span class="badge badge-danger px-2">{{$listOrder->status}}</span>
+                      @elseif($listOrder->status === "PENDING" || $listOrder->status === "REJECT")
+                        <span class="badge badge-warning px-2">{{$listOrder->status}}</span>
+                      @elseif($listOrder->status === "DELIVERING")
+                        <span class="badge badge-primary px-2">{{$listOrder->status}}</span>
+                      @elseif($listOrder->status === "DELIVERED")
+                        <span class="badge badge-success px-2">{{$listOrder->status}}</span>
+                      @endif
+                    </td>
                     </td>
                     <td style="display: flex">                       
                         <button class="btn btn-success btn">

@@ -27,7 +27,7 @@ class ProductController extends Controller
             $user = Auth::user();
             $products = Product::where('name', 'LIKE', '%'.$request->search. '%')
             ->leftJoin(DB::raw("(SELECT user_id, product_id FROM user_favorites where user_favorites.user_id = $user->id) as tb"), 'tb.product_id', '=', 'products.id')
-            ->paginate(9);
+            ->paginate(16);
         }
         else{
             $products = Product::where('name', 'LIKE', '%'.$request->search. '%')->paginate(9);

@@ -54,9 +54,9 @@
                                 <div class="checkout__order__products">Product <span>Price</span></div>
                                 <ul>
                                   @foreach($myCart as $mycart)
-                                    <li >{{$mycart->name}}
+                                    <li >{{$mycart->name}} x <strong>{{$mycart->quantity_cart}}</strong>
                                       <span>
-                                      {{number_format(($mycart->price - $mycart->price*$mycart->discount*0.01)*$mycart->quantity_cart, 0)}}đ x {{$mycart->quantity_cart}}
+                                      {{number_format(($mycart->price - $mycart->price*$mycart->discount*0.01)*$mycart->quantity_cart, 0)}}đ
                                       </span>
                                     </li>
                                   @endforeach
